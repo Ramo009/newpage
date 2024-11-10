@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Science Education Website</title>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-Fo3rlrZj/k7ujTnHq6O4GIOVKmH4C1Kk6EeFSCSFjog7i44Vz9sDPD7qOkksIMMf4G2i6LWa7jzH5MZsOW60zg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="sever.js" type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="jquery-3.7.1.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href='https://fonts.googleapis.com/css?family=Antic Didone' rel='stylesheet'>
+  <style>
+    /* Reset default browser styles */
+    @import url("https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      /* Enable smooth scrolling */
+    }
+
+    body {
+      font-family: "Arial", sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow: auto;
+      /* Allow scrolling */
+      background: linear-gradient(135deg,
+          rgba(11, 90, 227, 0.8),
+          rgba(240, 71, 19, 0.8));
+      /* Smooth gradient */
+      color: #ffffff;
+      position: relative;
+      /* For particle animation positioning */
+    }
+
+    .logo {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border-radius: 3px;
+      left: 20px;
+      top: 22px;
+      z-index: 10000;
+      transition: all 0.5s ease-in-out;
+    }
+
+    @media(max-width: 700px) {
+      .logo {
+        z-index: -1;
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    @media(max-width: 600px) {
+      .logo {
+        z-index: -1;
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    #particles-js {
+      position: absolute;
+      /* Changed to absolute to prevent overflow issues */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      /* Full viewport height */
+      z-index: 0;
+      /* Ensure particles are behind other content */
+    }
+
+    header {
+      background: rgba(43, 43, 43, 0.7);
+      color: #ffffff;
+      padding: 20px 0;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      /* Bring header above particles */
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 13px;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ffeb8c;
+      /* Change color on hover */
+    }
+
+    main {
+      padding: 20px;
+      position: relative;
+      z-index: 1;
+      /* Ensure content is above the particles */
+    }
+
+    #title {
+      font-size: 2.4em;
+      margin-bottom: 10px;
+      text-align: center;
+      border-right: 2px solid rgba(255, 255, 255, 0);
+      /* Cursor effect */
+      white-space: nowrap;
+      /* Prevent text from wrapping */
+      overflow: hidden;
+      /* Hide overflow */
+      animation: blink 0.7s infinite;
+      /* Cursor blink animation */
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+
+    }
+
+    #title::before {
+      content: "";
+
+      text-align: center;
+      border-right: 2px solid rgba(255, 255, 255, 0);
+      /* Cursor effect */
+    }
+
+    @media(max-width:660px) {
+      #title {
+        font-size: 1em;
+      }
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        border-color: transparent;
+      }
+
+      50% {
+        border-color: white;
+      }
+    }
+
+    h2 {
+      font-size: 1.5em;
+      border-bottom: 1px solid #1b76f6;
+      padding-bottom: 5px;
+      margin: 20px 0;
+      font-family: "Playfair Display", serif;
+      text-align: center;
+    }
+
+    .columns,
+    .news-articles,
+    .row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      /* Set to 4 columns */
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    .column,
+    .col_links {
+      background: #f6f7fa8b;
+      color: #333;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      font-size: 12px;
+      font-family: "Playfair Display", serif;
+    }
+
+    .column:hover,
+    .col_links:hover {
+      background: #eef2f387;
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .section-image {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+      border: 1px solid #cccccc;
+      transition: transform 0.3s ease;
+    }
+
+    .column:hover .section-image,
+    .col_links:hover .section-image {
+      transform: scale(1.04);
+      /* Scale up on hover */
+      opacity: 0.7;
+    }
+
+    /* .news-articles {
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   gap: 20px;
+   margin: 20px 0;
+ } */
+
+    /* //////////////////////////// */
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      scroll-behavior: auto;
+    }
+
+    /* .overlay-content {
+   background-color: white;
+   padding: 30px;
+   border-radius: 10px;
+   text-align: center;
+   width: 80%;
+   max-width: 600px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+ } */
+    .overlay-content {
+      background-color: white;
+      color: #333;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      width: 80%;
+      max-width: 600px;
+      max-height: 80%;
+      /* Limit height to 80% of the viewport */
+      overflow-y: auto;
+      /* Enable vertical scrolling */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .overlay h2 {
+      margin-top: 0;
+      font-family: "Antic Didone";
+      font-size: 22px;
+    }
+
+    .overlay p {
+      margin: 10px 0;
+      font-size: 12px;
+      font-family: "Playfair Display", serif;
+    }
+
+    .overlay-image {
+      width: 40%;
+      height: 8em;
+      /* max-height: 300px; */
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .overlay-content {
+      animation: overlayFade 0.5s ease;
+    }
+
+    /* Media Queries for responsive design */
+    @media screen and (max-width: 1024px) {
+
+      .columns,
+      .row,
+      .news-articles {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 columns on medium screens */
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+
+      .columns,
+      .row,
+      .news-articles {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns on small screens */
+      }
+    }
+
+    @media screen and (max-width: 550px) {
+
+      .columns,
+      .row,
+      .news-articles {
+        grid-template-columns: repeat(1, 1fr);
+        /* 1 column on extra small screens */
+      }
+    }
+
+    footer {
+      background: rgba(43, 43, 43, 0.7);
+      color: #ffffff;
+      text-align: center;
+      padding: 10px 0;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      z-index: 1;
+      /* Ensure footer is above particles */
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      /* Set to 4 columns */
+    }
+
+    footer .creator {
+      color: #f1efe7;
+      /* Footer link color */
+      font-size: 8px;
+      margin: 8px 0;
+      text-align: center;
+    }
+
+    .social-container {
+      position: absolute;
+      right: 20px;
+      top: 8px;
+      display: flex;
+      gap: 20px;
+      /* Spacing between icons */
+    }
+
+    .social-icon {
+      text-decoration: none;
+      color: #fff;
+      font-size: 10px;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      transition: 0.3s ease;
+      margin: 5px 0;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    /* Facebook */
+    .facebook {
+      background-color: #3b5998;
+    }
+
+    /* Twitter */
+    .twitter {
+      background-color: #00acee;
+    }
+
+    /* Instagram */
+    .instagram {
+      background-color: #e1306c;
+    }
+
+    /* LinkedIn */
+    .linkedin {
+      background-color: #0077b5;
+    }
+
+    /* YouTube */
+    .youtube {
+      background-color: #ff0000;
+    }
+
+    .social-icon:hover {
+      transform: scale(1.2);
+    }
+
+    .social-icon:hover {
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+      /* Adds a shadow effect */
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2em;
+      }
+
+      nav ul li {
+        display: block;
+        margin: 10px 0;
+        /* Stack links vertically on small screens */
+      }
+    }
+
+    /* Scroll Buttons */
+    #scrollToTop,
+    #scrollDown {
+      position: fixed;
+      bottom: 6px;
+      right: 20px;
+      background-color: #669de69e;
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      cursor: pointer;
+      display: none;
+      /* Hidden by default */
+      z-index: 2;
+      /* Above other elements */
+    }
+
+    .ab_container {
+      display: none;
+    }
+
+    #visitorChart {
+      background-color: #ffffff8e;
+      color: #130101;
+      border-radius: 4px;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="particles-js"></div>
+  <header>
+    <img class="logo" src="logo.png" alt="">
+    <div class="container">
+      <h1 id="title"></h1>
+
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#tutorials">Home</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="tutorials_temp.html">Tutorials</a></li>
+        <li><a href="about_me.html">About me</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h2> Basic information</h2>
+    <div class="columns" id="tutorials">
+      <div class="column" data-image="cyber.jpg" data-title="Cybersecurity"
+        data-content="Cybersecurity refers to the practice of protecting systems, networks, and data from cyberattacks, unauthorized access, or damage. As our world becomes more digital and interconnected, cybersecurity has become essential for protecting sensitive information and maintaining trust in technology.
+
+        Key Aspects of Cybersecurity:
+        Confidentiality:
+        
+        Ensures that sensitive information is accessible only to authorized users.
+        Data encryption, authentication, and access controls are examples of methods used to maintain confidentiality.
+        Integrity:
+        
+        Ensures that data is accurate, reliable, and not altered by unauthorized users.
+        Techniques like hashing and digital signatures help protect data integrity.
+        Availability:
+        
+        Ensures that authorized users can access information and resources when needed.
+        This involves protecting systems from attacks like Distributed Denial of Service (DDoS), ensuring backups, and maintaining network uptime.
+        Types of Cyber Threats:
+        Malware:
+        
+        Malicious software like viruses, worms, ransomware, spyware, and trojans that damage or steal data. Ransomware, for example, encrypts files and demands a ransom to unlock them.
+        Phishing:
+        
+        A method where attackers deceive individuals into providing sensitive information, like passwords or credit card numbers, by pretending to be a legitimate entity (e.g., through fake emails or websites).
+        Man-in-the-Middle (MitM) Attacks:
+        
+        Attackers intercept and potentially alter communication between two parties, often done through insecure public Wi-Fi networks or compromised routers.
+        Denial of Service (DoS) / Distributed Denial of Service (DDoS):
+        
+        Attacks that flood a server or network with traffic, making it unavailable to users.
+        SQL Injection:
+        
+        Exploits vulnerabilities in databases by inserting malicious SQL code to manipulate or retrieve data, potentially accessing private information like passwords or credit card numbers.
+        Zero-Day Exploits:
+        
+        Exploits vulnerabilities in software that the developers are unaware of. Hackers use these weaknesses to attack systems before a fix or patch is available.
+        Insider Threats:
+        
+        Cybersecurity risks posed by people within an organization, whether intentional or accidental, such as employees leaking sensitive data.
+        Key Cybersecurity Practices:
+        Firewalls:
+        
+        Security systems that monitor and control incoming and outgoing network traffic based on predetermined security rules. They act as barriers between trusted internal networks and untrusted external networks.
+        Encryption:
+        
+        Converting data into a coded format that can only be accessed with the correct decryption key, ensuring data privacy and protection.
+        Multi-factor Authentication (MFA):
+        
+        Requires multiple forms of verification (e.g., password and a code sent to your phone) to gain access to a system, providing an extra layer of security beyond passwords.
+        Antivirus and Anti-malware Software:
+        
+        Programs that detect, prevent, and remove malware from computers, safeguarding against malicious attacks.
+        Security Patches and Updates:
+        
+        Regularly updating software to fix vulnerabilities and protect against the latest threats.
+        Backup and Disaster Recovery Plans:
+        
+        Regularly backing up data ensures that if a system is compromised, important information can be recovered quickly, minimizing the damage.
+        Common Cybersecurity Tools:
+        Intrusion Detection Systems (IDS):
+        
+        Monitors networks or systems for malicious activities or policy violations and sends alerts when suspicious activities are detected.
+        Virtual Private Networks (VPNs):
+        
+        A secure communication tunnel between devices and the internet, encrypting all transmitted data and hiding user IP addresses.
+        Penetration Testing (Pen Testing):
+        
+        Ethical hackers simulate attacks on a system to identify vulnerabilities that real attackers could exploit.
+        Security Information and Event Management (SIEM):
+        
+        Software solutions that provide real-time analysis of security alerts generated by hardware and software.
+        Cybersecurity Challenges:
+        Sophisticated Attacks:
+        
+        As technology advances, cybercriminals are developing more sophisticated and complex attack techniques that can bypass traditional security measures.
+        Human Error:
+        
+        Human mistakes, like clicking on malicious links or using weak passwords, are often a major security vulnerability.
+        Evolving Technology:
+        
+        The growing use of cloud computing, Internet of Things (IoT) devices, and artificial intelligence has introduced new vulnerabilities and attack surfaces.
+        Data Privacy and Compliance:
+        
+        Regulations like GDPR (General Data Protection Regulation) and CCPA (California Consumer Privacy Act) require organizations to protect users' personal data, adding pressure to maintain strict security standards.
+        Careers in Cybersecurity:
+        Security Analyst: Monitors and responds to cyber threats.
+        Penetration Tester (Ethical Hacker): Simulates attacks to find vulnerabilities.
+        Cybersecurity Engineer: Designs secure systems and networks.
+        Incident Responder: Reacts to and mitigates security breaches.
+        Chief Information Security Officer (CISO): Manages and leads an organization's cybersecurity strategy.
+        Importance of Cybersecurity:
+        With the increasing amount of data being stored and shared online, cybersecurity is critical for protecting personal privacy, business operations, and national security. Cyberattacks can lead to massive data breaches, financial losses, reputation damage, and even the disruption of essential services like healthcare and banking.
+        
+        By implementing robust cybersecurity practices, individuals and organizations can significantly reduce the risk of falling victim to these attacks and help secure the digital ecosystem.">
+
+        <img class="section-image" src="cyber.jpg" alt="Tutorial 1" />
+        <h3>Cybersecurity</h3>
+        <p>Click for learn more...</p>
+      </div>
+      <div class="column" data-image="Hacking.jpg" data-title="Haking"
+        data-content="Hacking is the practice of exploiting vulnerabilities in computer systems, networks, or devices to gain unauthorized access, often with malicious intent. However, not all hacking is illegal or harmful. Depending on the intent and actions of the hacker, hacking can be categorized into different types, ranging from ethical hacking to criminal activities.
+
+        Types of Hacking
+        White Hat Hacking (Ethical Hacking):
+        
+        Legal and authorized hacking that aims to identify and fix security vulnerabilities in systems to strengthen defenses. White hat hackers, also known as ethical hackers, are often employed by organizations to conduct penetration testing and security assessments.
+        These hackers follow ethical guidelines and only hack systems they have permission to test.
+        Tools: Penetration testing frameworks (e.g., Metasploit, Burp Suite), vulnerability scanners (e.g., Nessus).
+        Black Hat Hacking:
+        
+        Illegal hacking with malicious intent. Black hat hackers exploit vulnerabilities to steal data, spread malware, or disrupt operations. They can target businesses, governments, or individuals, causing financial and reputational damage.
+        Black hat hackers often engage in cybercrimes such as data breaches, ransomware attacks, identity theft, and fraud.
+        Tools: Malware, exploit kits, keyloggers, phishing kits.
+        Gray Hat Hacking:
+        
+        Hackers who operate in a gray area between ethical and malicious hacking. Gray hat hackers may discover vulnerabilities without permission, but instead of exploiting them for personal gain, they may disclose them to the affected organization—often in exchange for recognition or rewards.
+        Gray hats often don’t have explicit authorization to hack but may not act with harmful intent.
+        Script Kiddies:
+        
+        Inexperienced hackers who use pre-written scripts, tools, or software developed by more skilled hackers. They often lack deep technical knowledge and usually cause minor disruptions or website defacements rather than advanced attacks.
+        Their attacks tend to be unsophisticated but can still cause significant harm, such as launching DDoS attacks.
+        Hacktivists:
+        
+        Hackers who use hacking as a tool for political or social activism. Their goal is to promote a cause or make a statement rather than financial gain. They may deface websites, steal sensitive information, or disrupt services to draw attention to their agenda.
+        Groups like Anonymous are well-known hacktivists, often targeting governments or corporations.
+        State-Sponsored Hacking:
+        
+        Hacking groups that are funded and supported by national governments to spy on or sabotage other countries, businesses, or political entities. These hackers focus on espionage, cyber warfare, or sabotage of critical infrastructure.
+        Examples: China, Russia, North Korea, and the United States are often accused of engaging in state-sponsored cyberattacks.
+        State-sponsored hackers have targeted elections, power grids, military systems, and more.
+        Cybercriminals:
+        
+        Hackers motivated primarily by financial gain. They conduct illegal activities such as ransomware, phishing, bank fraud, and identity theft. They often operate in organized criminal groups and target individuals or organizations to steal sensitive information, money, or intellectual property.
+        Common Hacking Techniques
+        Phishing:
+        
+        A form of social engineering where hackers send fake emails or messages pretending to be legitimate entities (e.g., banks or employers) to trick users into giving up sensitive information like usernames, passwords, or credit card numbers.
+        Advanced phishing attacks, called spear-phishing, target specific individuals or organizations with personalized messages.
+        Malware:
+        
+        Malicious software like viruses, worms, ransomware, spyware, and trojans that can infect systems to steal information, corrupt data, or disrupt operations.
+        Ransomware is particularly dangerous, encrypting a victim's files and demanding a ransom payment to unlock them.
+        SQL Injection:
+        
+        An attack technique where hackers exploit vulnerable web applications by injecting malicious SQL code into a query. This allows them to retrieve or manipulate databases, gaining access to sensitive data like usernames, passwords, and credit card details.
+        Brute Force Attacks:
+        
+        Hackers attempt to guess login credentials (usernames and passwords) by trying all possible combinations until they find the correct one. Automated tools can quickly test thousands or millions of password combinations, making weak passwords especially vulnerable.
+        Man-in-the-Middle (MitM) Attacks:
+        
+        Hackers intercept and alter communication between two parties (e.g., between a user and a website or a bank), often without either party knowing. This can lead to data theft or session hijacking.
+        DDoS (Distributed Denial of Service):
+        
+        Hackers overwhelm a server or network by flooding it with massive amounts of traffic, causing the service to become unavailable to legitimate users. This can result in significant downtime for websites or services, affecting businesses and users.
+        Exploits and Zero-Day Attacks:
+        
+        Zero-day exploits take advantage of vulnerabilities in software that are unknown to the vendor or unpatched. Hackers can exploit these flaws before they are fixed, causing extensive damage.
+        Once vulnerabilities are discovered, hackers often create exploits—pieces of code designed to take advantage of specific weaknesses in systems or applications.
+        Keylogging:
+        
+        A technique where hackers secretly record every keystroke a user makes on their keyboard, capturing sensitive information like passwords, credit card details, and personal messages.
+        Social Engineering:
+        
+        Rather than attacking systems directly, social engineering attacks focus on manipulating people into giving up confidential information or performing harmful actions. For example, a hacker may impersonate a legitimate employee to convince an IT department to reset passwords.
+        Tools Used by Hackers
+        Metasploit:
+        
+        A powerful penetration testing framework used by both ethical hackers and cybercriminals to identify and exploit vulnerabilities in networks and systems.
+        Nmap:
+        
+        A popular network scanning tool used to discover hosts and services on a network. Hackers use it for reconnaissance to map out the attack surface.
+        Wireshark:
+        
+        A network protocol analyzer that captures and inspects data passing through a network. Hackers use it to sniff out sensitive information being transmitted over the network.
+        Aircrack-ng:
+        
+        A suite of tools used to crack Wi-Fi passwords by exploiting weaknesses in wireless encryption protocols like WPA/WPA2.
+        Cain & Abel:
+        
+        A password recovery tool that can crack encrypted passwords, sniff network traffic, and recover keys.
+        The Ethics of Hacking
+        Ethical Hacking: Ethical hacking is legal and involves testing systems for vulnerabilities to strengthen them. Many organizations hire ethical hackers or penetration testers to proactively protect their systems by simulating attacks and finding security weaknesses before malicious hackers can exploit them.
+        
+        Illegal Hacking: Black hat hacking and cybercrime are illegal. Hacking into systems without permission violates privacy laws, data protection regulations, and cybersecurity legislation. Offenders can face severe consequences, including imprisonment, fines, and loss of privileges.
+        
+        Famous Hacking Incidents
+        Yahoo Data Breach (2013-2014):
+        
+        One of the largest data breaches in history, where hackers stole data from 3 billion user accounts, exposing personal information like email addresses, passwords, and security questions.
+        WannaCry Ransomware Attack (2017):
+        
+        A global ransomware attack that exploited a vulnerability in Windows systems, encrypting data on computers across more than 150 countries. Victims were asked to pay a ransom in Bitcoin to unlock their files.
+        Sony Pictures Hack (2014):
+        
+        Hackers breached Sony Pictures' systems, leaking sensitive corporate data, emails, unreleased films, and personal information of employees. The hack was believed to be politically motivated.
+        Equifax Data Breach (2017):
+        
+        Hackers exploited a vulnerability in Equifax's system, leading to the exposure of personal data (including Social Security numbers, birthdates, and credit card numbers) of over 147 million people.
+        Prevention and Protection Against Hacking
+        Use Strong Passwords: Ensure passwords are long, unique, and hard to guess. Avoid using the same password for multiple accounts and use a password manager to store them securely.
+        
+        Enable Multi-Factor Authentication (MFA): Add extra layers of security to your accounts by requiring additional verification methods, such as a code sent to your phone or a biometric scan.
+        
+        Keep Software Updated: Regularly update operating systems, software, and applications to ensure that known vulnerabilities are patched.
+        
+        Be Cautious of Phishing: Never click on suspicious links or open attachments from unknown sources. Verify the legitimacy of emails or messages before responding or providing sensitive information.
+        
+        Use Firewalls and Antivirus: Install reputable firewall and antivirus software to detect and block malicious attacks.
+        
+        Regular Backups: Back up your data regularly to mitigate the damage in case of a ransomware attack or data loss.
+        
+        In conclusion, hacking is a complex field with both legal and illegal applications. While ethical hackers help protect systems, malicious hackers can cause significant damage. Understanding the tools, techniques, and methods of hacking is crucial to defending against cyber threats in today's digital world.">
+        <img class="section-image" src="Hacking.jpg" alt="Tutorial 2" />
+        <h3>Haking</h3>
+        <p>Click for learn more...</p>
+      </div>
+      <div class="column" data-image="prog.jpg" data-title="Programming"
+        data-content="Programming is the process of writing, testing, and maintaining the instructions that a computer follows to perform specific tasks or solve problems. These instructions, known as code, are written in a variety of programming languages that computers can understand and execute. Programmers, or developers, use these languages to create software, applications, websites, games, and more.
+
+        Key Concepts in Programming:
+        Programming Languages:
+        
+        A programming language is a formal language comprising a set of instructions used to produce various kinds of output, such as software applications.
+        Programming languages range from low-level languages (closer to machine language) to high-level languages (closer to human language). Examples include:
+        Low-level: Assembly, Machine Code
+        High-level: Python, Java, JavaScript, C++, Ruby, etc.
+        Each language has its own syntax (rules for writing code) and is suited for different types of tasks.
+        Syntax:
+        
+        Syntax refers to the set of rules that define the combinations of symbols and keywords that are considered valid in a specific programming language. Correct syntax is essential for a program to compile and run properly.
+        Algorithms:
+        
+        An algorithm is a step-by-step procedure or formula for solving a problem or accomplishing a task. In programming, algorithms are often used to define how data is processed.
+        Example: A sorting algorithm arranges data in a particular order (e.g., ascending or descending).
+        Data Structures:
+        
+        Data structures are ways to organize and store data so that it can be accessed and modified efficiently. Common data structures include:
+        Arrays: A collection of items stored at contiguous memory locations.
+        Linked Lists: A series of connected nodes where each node contains data and a reference (or pointer) to the next node.
+        Stacks and Queues: Used to store items in a particular order (LIFO for stacks, FIFO for queues).
+        Trees: A hierarchical structure where each node has a value and references to other nodes.
+        Hash Tables: Stores key-value pairs for efficient retrieval.
+        Control Structures:
+        
+        Control structures dictate the flow of execution in a program. These include:
+        Conditional Statements (e.g., if, else, switch): Direct the flow based on certain conditions.
+        Loops (e.g., for, while, do-while): Execute a block of code repeatedly.
+        Functions/Methods: Reusable blocks of code designed to perform a specific task.
+        Recursion: When a function calls itself to solve a smaller instance of the problem.
+        Variables:
+        
+        Variables are used to store data in a program. They act as placeholders for values and can change throughout the program’s execution.
+        Types of variables include:
+        Integers: Whole numbers (e.g., 10, -5).
+        Floats: Decimal numbers (e.g., 3.14).
+        Strings: Text or sequence of characters (e.g., 'Hello, World').
+        Booleans: True or false values (e.g., true, false).
+        Functions and Procedures:
+        
+        Functions: Named blocks of code that can be reused throughout a program. They can take input, perform operations, and return output.
+        Procedures: Similar to functions but do not necessarily return a value.
+        Object-Oriented Programming (OOP):
+        
+        A programming paradigm that revolves around the concept of objects. Objects are instances of classes, which define attributes (data) and methods (functions).
+        Key principles of OOP:
+        Encapsulation: Bundling the data and methods that operate on the data into a single unit or class.
+        Inheritance: A class can inherit characteristics (methods and attributes) from another class.
+        Polymorphism: Objects can take many forms. For instance, a method may behave differently based on the object that invokes it.
+        Abstraction: Hiding complex details and showing only the essential features of an object.
+        Compilers and Interpreters:
+        
+        Compilers translate the entire source code of a program into machine code before execution. Languages like C, C++, and Java use compilers.
+        Interpreters execute the code line by line without converting it into machine code first. Languages like Python, Ruby, and JavaScript use interpreters.
+        Integrated Development Environment (IDE):
+        
+        An IDE is software that provides tools for writing, editing, and debugging code. It often includes a text editor, syntax highlighting, and error-checking features.
+        Popular IDEs: Visual Studio Code, IntelliJ IDEA, PyCharm, Eclipse.
+        Types of Programming Languages:
+        Procedural Programming Languages:
+        
+        Focuses on functions and sequences of instructions to be executed in order.
+        Examples: C, Pascal, Fortran.
+        Object-Oriented Programming Languages:
+        
+        Based on objects and the interactions between them.
+        Examples: Java, C++, Python, Ruby.
+        Functional Programming Languages:
+        
+        Treats computation as the evaluation of mathematical functions and avoids changing states or mutable data.
+        Examples: Haskell, Lisp, Scala.
+        Scripting Languages:
+        
+        Used for automating tasks and manipulating data in a simple and concise manner.
+        Examples: Python, JavaScript, PHP.
+        Markup and Query Languages:
+        
+        Used to structure and query data.
+        Examples: HTML (for web structure), SQL (for database queries), XML (for data representation).
+        Phases of Programming:
+        Problem Definition:
+        
+        Understanding the problem you are trying to solve. This includes identifying inputs, required outputs, and the constraints or limitations.
+        Algorithm Design:
+        
+        Creating an efficient solution to the problem in the form of a step-by-step procedure. Often involves selecting the appropriate data structures and algorithms.
+        Writing the Code:
+        
+        Implementing the designed solution in a programming language.
+        Testing and Debugging:
+        
+        Testing the program to ensure that it works correctly. Debugging involves identifying and fixing any errors (bugs) in the code.
+        Maintenance:
+        
+        After the program is deployed, it may need to be updated or modified to fix bugs, improve performance, or adapt to new requirements.
+        Programming Paradigms:
+        Imperative Programming:
+        
+        Focuses on how to perform tasks with detailed step-by-step instructions. In this paradigm, the programmer defines how the result will be achieved.
+        Example: C, Python (imperative style).
+        Declarative Programming:
+        
+        Focuses on what the program should accomplish without specifying how to do it. The programmer defines the goal, and the language implementation handles the 'how.'
+        Example: SQL, HTML.
+        Functional Programming:
+        
+        Emphasizes the use of pure functions and avoids mutable data. Functional programming languages treat computation as the evaluation of mathematical functions.
+        Example: Haskell, Lisp, Scala.
+        Event-Driven Programming:
+        
+        Focuses on reacting to events (e.g., user input, sensor outputs, or messages from other programs).
+        Common in graphical user interfaces (GUIs) and game development.
+        Example: JavaScript in web development.
+        Concurrent Programming:
+        
+        Focuses on programs that can execute multiple parts of the code simultaneously, which is useful for optimizing performance on multi-core processors.
+        Example: Java with multithreading, Go with goroutines.
+        Popular Programming Languages Today:
+        Python:
+        
+        A high-level, versatile language known for its simplicity and readability. Used in web development, data analysis, AI, automation, and more.
+        Key Features: Easy syntax, vast libraries, strong community support.
+        JavaScript:
+        
+        A widely-used language for web development, particularly for client-side programming. JavaScript enables interactive web pages and dynamic content.
+        Key Features: Lightweight, event-driven, supports front-end and back-end (with Node.js).
+        Java:
+        
+        A powerful, object-oriented language used in web applications, Android development, and large enterprise systems.
+        Key Features: Cross-platform, robust, used extensively in enterprise environments.
+        C++:
+        
+        A high-performance language often used for system software, game development, and applications requiring hardware-level control.
+        Key Features: Low-level memory manipulation, fast execution, object-oriented.
+        Ruby:
+        
+        Known for its elegance and simplicity, Ruby is popular for web development, especially with the Rails framework.
+        Key Features: Concise syntax, dynamic typing, strong community support.
+        C#:
+        
+        Developed by Microsoft, C# is primarily used for developing Windows applications, web apps (ASP.NET), and game development (Unity engine).
+        Key Features: Object-oriented, strong integration with the .NET ecosystem.
+        Swift:
+        
+        A modern language developed by Apple for iOS and macOS app development.
+        Key Features: Fast, safe, and easy to use with great support for modern programming practices.
+        Careers in Programming:
+        Software Developer:
+        
+        Design and build applications or systems software. Developers work on various projects like mobile apps, enterprise applications, or web services.
+        Web Developer:
+        
+        Specializes in building websites and web applications using technologies like HTML, CSS, JavaScript, and frameworks like React or Angular.
+        Data Scientist:
+        
+        Uses programming (often Python or R) to analyze and interpret large datasets. Data scientists often apply statistical methods and machine learning algorithms.
+        Game Developer:
+        
+        Develops video games using languages like C++, C#, or specialized game development frameworks like Unity or Unreal Engine.
+        DevOps Engineer:
+        
+        Combines development and operations, ensuring smooth deployment of software through automation, monitoring, and continuous integration/continuous deployment (CI/CD) tools.
+        Machine Learning Engineer:
+        
+        Designs algorithms that allow computers to learn and make decisions. Programming languages commonly used include Python, R, and specialized libraries like TensorFlow.
+        In summary, programming is a critical skill in today’s digital world. It enables the creation of everything from simple scripts to complex systems and applications. Understanding programming languages, algorithms, and problem-solving techniques forms the foundation of a successful career in software development or related fields.">
+        <img class="section-image" src="prog.jpg" alt="Tutorial 1" />
+        <h3>Programming</h3>
+        <p>Click for learn more...</p>
+      </div>
+      <div class="column" data-image="knoledge.jpg" data-title="Knowledge"
+        data-content="Education is the process of acquiring knowledge, skills, values, and habits through various methods such as teaching, training, research, and guided experiences. It is fundamental to individual development and societal progress, shaping critical thinking, creativity, and the ability to engage with the world. Education plays a vital role in promoting social and economic mobility and preparing individuals for participation in the workforce, society, and culture.
+
+        Key Aspects of Education:
+        Formal Education:
+        
+        Formal education occurs in structured settings, typically within schools, colleges, and universities. It is organized into stages such as primary, secondary, and tertiary education, and is guided by a curriculum developed by educational institutions.
+        Stages:
+        Primary Education: The first stage, where children are introduced to basic subjects like reading, writing, mathematics, and social studies.
+        Secondary Education: Follows primary education and often includes a more specialized curriculum, preparing students for further education or entry into the workforce.
+        Tertiary Education: Involves higher education, such as universities, colleges, and technical schools, where students pursue advanced degrees or vocational training.
+        Informal Education:
+        
+        Learning that occurs outside formal institutions, typically through everyday experiences, self-study, or social interactions. Examples include learning from books, online courses, family, peers, or life experiences.
+        Informal education fosters lifelong learning, allowing individuals to develop skills and knowledge beyond traditional settings.
+        Non-Formal Education:
+        
+        Structured learning that happens outside formal educational systems but still follows a planned curriculum. It includes adult education, vocational training, online courses, and community education programs.
+        Curriculum:
+        
+        A curriculum is the set of courses, lessons, and content delivered in an educational program. It serves as a guide for both teachers and learners, outlining the skills, knowledge, and competencies that students are expected to acquire.
+        The curriculum varies by country, region, and educational level. It can include core subjects (e.g., mathematics, language arts, science) as well as elective courses that reflect students' interests.
+        Pedagogy:
+        
+        Pedagogy refers to the method and practice of teaching. Effective pedagogy focuses not just on what is taught but on how it is taught, considering factors like student engagement, learning styles, and classroom dynamics.
+        Popular pedagogical approaches include:
+        Traditional/Teacher-Centered Learning: The teacher is the primary source of knowledge, delivering information in lectures or direct instruction.
+        Student-Centered Learning: Emphasizes the role of the learner in shaping their educational experience through activities, collaboration, and discovery.
+        Lifelong Learning:
+        
+        Education does not stop at formal schooling; lifelong learning promotes continuous development of skills and knowledge throughout a person’s life. This can include professional training, personal interest courses, or self-directed learning.
+        Educational Technology (EdTech):
+        
+        The use of technology to enhance learning. This includes digital tools such as online courses, interactive whiteboards, e-books, and educational apps.
+        EdTech has revolutionized how education is delivered, making learning more accessible and flexible, particularly through online platforms and virtual classrooms.">
+        <img class="section-image" src="knoledge.jpg" alt="Tutorial 2" />
+        <h3>Education</h3>
+        <p>Click for learn more...</p>
+      </div>
+      <!-- Repeat for more tutorials -->
+    </div>
+
+    <h2>Top Infos for beginners</h2>
+    <div class="row">
+      <div class="col_links">
+
+        <img class="section-image" src="mdn.png" alt="Tutorial 2" />
+        <h3 style="margin: 10px 0;">Introduction to Programming Languages</h3>
+        <p>Explore the essentials of popular programming languages, from syntax to
+          practical applications. A perfect starting point for new developers!</p>
+        <a href="https://developer.mozilla.org/en-US/"
+          style="margin: 10px 0; font-weight: bold; font-size: 14px; text-decoration: none; color: #9b9b9b;"
+          target="_blank">Learn more </a>
+      </div>
+      <div class="col_links">
+
+        <img class="section-image" src="3w.png" alt="Tutorial 2" />
+        <h3 style="margin: 10px 0;">Foundations of Programming</h3>
+        <p>Stay updated with recent trends, tools, and techniques in the world of
+          programming. Perfect for beginners looking to broaden their knowledge!</p>
+        <a href="https://www.w3schools.com/"
+          style="margin: 10px 0; font-weight: bold; font-size: 14px; text-decoration: none; color: #9b9b9b;"
+          target="_blank">Learn more</a>
+      </div>
+
+
+      <!-- JavaScript Information -->
+      <div class="col_links">
+        <img class="section-image" src="js.png" alt="JavaScript Tutorial" />
+        <h3>JavaScript Basics</h3>
+        <p>Start your journey with JavaScript, the language of the web! Learn how to add interactive elements to web
+          pages and build dynamic applications.</p>
+        <a href="https://javascript.info" target="_blank"
+          style="margin: 10px 0; font-weight: bold; font-size: 14px; text-decoration: none; color: #9b9b9b;"
+          target="_blank">Learn more</a>
+      </div>
+
+      <!-- HTML Information -->
+      <div class="col_links">
+        <img class="section-image" src="html.png" alt="HTML Guide" />
+        <h3>HTML Fundamentals</h3>
+        <p>Dive into HTML, the backbone of web structure. Discover how to create well-structured pages with semantic
+          elements and accessible content.</p>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"
+          style="margin: 10px 0; font-weight: bold; font-size: 14px; text-decoration: none; color:#9b9b9b;"
+          target="_blank">Learn more</a>
+      </div>
+
+      <!-- CSS Information -->
+      <div class="col_links">
+        <img class="section-image" src="css.png" alt="CSS Tutorial" />
+        <h3>CSS Styling Tips</h3>
+        <p>Master the art of styling with CSS! Learn how to make your pages visually appealing, from layout to color
+          schemes and animations.</p>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank"
+          style="margin: 10px 0; font-weight: bold; font-size: 14px; text-decoration: none; color: #9b9b9b;"
+          target="_blank">Learn more</a>
+      </div>
+      <!-- Linux Information -->
+      <div class="col_links">
+        <img class="section-image" src="linux.png" alt="Linux Guide" />
+        <h3>Getting Started with Linux</h3>
+        <p>Explore the basics of Linux, a powerful open-source operating system. Learn how to navigate the command line,
+          manage files, and enhance your programming toolkit.</p>
+        <a href="https://linux.org" target="_blank"
+          style=" font-weight: bold; font-size: 14px; text-decoration: none; color: #9b9b9b;padding-top: 30px;"
+          target="_blank">Learn more</a>
+      </div>
+
+    </div>
+
+
+
+  </main>
+
+  <footer>
+    <i class="creator">© 2024 Created by Ramazan</i>
+    <div class="social-container">
+      <a href="https://facebook.com/ramo" class="social-icon facebook" target="_blank">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://x.com/0xRamo" class="social-icon twitter" target="_blank">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="#" class="social-icon instagram" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="#" class="social-icon linkedin" target="_blank">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="#" class="social-icon youtube" target="_blank">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </div>
+
+  </footer>
+  <div id="overlay" class="overlay">
+    <div class="overlay-content">
+      <h2 id="overlayTitle">Overlay Title</h2>
+      <img id="overlayImage" class="overlay-image" src="" alt="Overlay Image" />
+      <p id="overlayContent">
+        This is the overlay content. You can put any content here.
+      </p>
+      <button id="closeOverlayButton" class="search-button">Close</button>
+    </div>
+    <!-- Scroll Buttons -->
+    <button id="scrollDown">Down</button>
+    <button id="scrollToTop">Top</button>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+      "use strict";
+      // Check if the user is visiting for the first time
+
+      if (!localStorage.getItem("firstVisit")) {
+        const str = "";
+        str = prompt("Please enther your Name. ");
+
+        // Show an alert
+        alert("Welcome to my website " + str);
+
+        // Mark that the user has visited, so they don't see the alert again
+        localStorage.setItem("firstVisit", "true");
+      };
+      //h1 text animateconsole.log();
+      const texts = [
+        "Welcome to my website!",
+        "Your Science Website!",
+        "More about Technology!",
+      ];
+
+      let currentTextIndex = 0;
+      let charIndex = 0;
+      let typingSpeed = 100; // Typing speed in milliseconds
+
+      function typeWriter() {
+        if (charIndex < texts[currentTextIndex].length) {
+          document.getElementById("title").innerHTML +=
+            texts[currentTextIndex].charAt(charIndex);
+          charIndex++;
+          setTimeout(typeWriter, typingSpeed);
+        } else {
+          // Wait for 2 seconds before starting to erase the text
+          setTimeout(eraseWriter, 2000);
+        }
+      }
+
+      function eraseWriter() {
+        if (charIndex > 0) {
+          document.getElementById("title").innerHTML = texts[
+            currentTextIndex
+          ].substring(0, charIndex - 1);
+          charIndex--;
+          setTimeout(eraseWriter, typingSpeed);
+        } else {
+          // Move to the next text
+          currentTextIndex = (currentTextIndex + 1) % texts.length; // Cycle through texts
+          setTimeout(typeWriter, 500); // Wait before starting to type the next text
+        }
+      }
+
+      // Start typing effect when the page loads
+      window.onload = typeWriter;
+
+      //Overlay js code
+      const overlay = document.getElementById("overlay");
+      const overlayTitle = document.getElementById("overlayTitle");
+      const overlayContent = document.getElementById("overlayContent");
+      const overlayImage = document.getElementById("overlayImage");
+      const closeOverlayButton = document.getElementById("closeOverlayButton");
+
+      // Function to open the overlay with dynamic content
+      function openOverlay(title, content, image) {
+        overlayTitle.innerText = title;
+        overlayContent.innerText = content;
+        overlayImage.src = image;
+        overlayImage.alt = title; // Set alt attribute for accessibility
+        overlay.style.display = "flex"; // Show the overlay
+      }
+
+      // Close overlay when clicking the close button
+      closeOverlayButton.addEventListener("click", () => {
+        overlay.style.display = "none"; // Hide the overlay
+      });
+
+      // Close overlay when clicking outside the content
+      overlay.addEventListener("click", (event) => {
+        if (event.target === overlay) {
+          overlay.style.display = "none";
+        }
+      });
+
+      // Add click event to each column to open the overlay
+      document.querySelectorAll(".column").forEach((column) => {
+        column.addEventListener("click", function () {
+          const title = column.getAttribute("data-title");
+          const content = column.getAttribute("data-content");
+          const image = column.getAttribute("data-image"); // Get the image source
+          openOverlay(title, content, image); // Open the overlay with the book's title, content, and image
+        });
+      });
+      // Particles.js configuration
+      particlesJS.load("particles-js", "particles.json", function () {
+        console.log("callback - particles.js config loaded");
+      });
+
+      // Scroll to Next Section
+      const scrollDownButton = document.getElementById("scrollDown");
+      const nextSection = document.getElementById("articles"); // The next section you want to scroll to
+
+      scrollDownButton.onclick = function () {
+        // Scroll to the next section smoothly
+        nextSection.scrollIntoView({ behavior: "smooth" });
+      };
+
+      // Scroll to Top Button
+      const scrollToTopButton = document.getElementById("scrollToTop");
+
+      window.onscroll = function () {
+        if (
+          document.body.scrollTop > 100 ||
+          document.documentElement.scrollTop > 100
+        ) {
+          scrollToTopButton.style.display = "block"; // Show button when scrolled down
+          scrollDownButton.style.display = "none"; // Hide scroll down button when scrolled down
+        } else {
+          scrollToTopButton.style.display = "none"; // Hide button when at the top
+          scrollDownButton.style.display = "block"; // Show scroll down button when at the top
+        }
+      };
+
+      scrollToTopButton.onclick = function () {
+        window.scrollTo({ top: 0, behavior: "smooth" }); // Smooth scroll to top
+      };
+      particlesJS("particles-js", {
+        particles: {
+          number: {
+            value: 100,
+            density: {
+              enable: true,
+              value_area: 800,
+            },
+          },
+          color: {
+            value: "#ffffff",
+          },
+          shape: {
+            type: "circle",
+            stroke: {
+              width: 0,
+              color: "#000000",
+            },
+            polygon: {
+              nb_sides: 5,
+            },
+            image: {
+              src: "img/github.svg",
+              width: 100,
+              height: 100,
+            },
+          },
+          opacity: {
+            value: 0.5,
+            random: false,
+            anim: {
+              enable: false,
+              speed: 1,
+              opacity_min: 0.1,
+              sync: false,
+            },
+          },
+          size: {
+            value: 5,
+            random: true,
+            anim: {
+              enable: false,
+              speed: 40,
+              size_min: 0.1,
+              sync: false,
+            },
+          },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#fff",
+            opacity: 0.4,
+            width: 1,
+          },
+          move: {
+            enable: true,
+            speed: 6,
+            direction: "none",
+            random: false,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
+            attract: {
+              enable: false,
+              rotateX: 600,
+              rotateY: 1200,
+            },
+          },
+        },
+        interactivity: {
+          detect_on: "window",
+          events: {
+            onhover: {
+              enable: true,
+              mode: ["grab", "bubble"],
+            },
+            onclick: {
+              enable: true,
+              mode: "repulse",
+            },
+            resize: true,
+          },
+          modes: {
+            grab: {
+              distance: 300,
+              line_linked: {
+                opacity: 1,
+              },
+            },
+            bubble: {
+              distance: 400,
+              size: 5,
+              duration: 2,
+              opacity: 8,
+              speed: 3,
+            },
+            repulse: {
+              distance: 200,
+              duration: 0.4,
+            },
+            push: {
+              particles_nb: 4,
+            },
+            remove: {
+              particles_nb: 2,
+            },
+          },
+        },
+        retina_detect: true,
+      });
+
+
+
+    </script>
+</body>
+
+</html>

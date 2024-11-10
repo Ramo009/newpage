@@ -1,0 +1,399 @@
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap");
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .container {
+    background-color: #e1e1e1;
+    max-height: max-content;
+    padding: 4em 5em;
+  }
+  @media screen and (max-width: 768px) {
+    .container {
+      padding: 3em 10px;
+    }
+  }
+
+  .title {
+    text-align: center;
+    margin: 0 0 2em 0;
+    font-style: italic;
+    font-variant-numeric: lining-nums;
+  }
+
+  .sec {
+    text-align: center;
+  }
+  .tags_title {
+    margin: 15px 0;
+    font-weight: 400;
+    font-size: 20px;
+    font-style: oblique;
+    background-color: black;
+    color: #e1e1e1;
+    border-radius: 3px;
+    transition: 1s;
+  }
+  .tags_title:hover {
+    color: rgb(255, 140, 0);
+    /* transition: 1s; */
+  }
+  .sec .tags_description p {
+    font-family: "Crimson Text", serif;
+    font-style: italic;
+    padding: 10px 0;
+    background-color: #e4e4e4e4;
+    margin-top: 10px;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 1px -1px 1px rgba(0, 85, 255, 0.637);
+    transition: all 0.7s;
+    border: 1px solid transparent;
+  }
+  .sec .tags_description p:hover,
+  .sec .tags_description p:focus {
+    background-color: #f1f1f1;
+    transition: all 0.5s;
+    box-shadow: 1px 1px 1px rgba(255, 4, 0, 0.727);
+  }
+  mark {
+    color: #0871e2;
+    background-color: darkgray;
+    border-radius: 2px;
+  }
+</style>
+
+<div class="container">
+  <h2 class="title">Basic HTML code exampling</h2>
+  <main class="sec">
+    <div class="options">
+      <h4 class="tags_title">1. Document Structure Tags</h4>
+      <div class="tags_description">
+        <p>
+          &lt;!DOCTYPE html&gt; : Declares the HTML document type (usually
+          HTML5) to the browser.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;html&gt; : The root element of an HTML document; all other
+          elements are nested inside.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;head&gt; : Contains metadata for the document like title, links to
+          stylesheets, and scripts.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;title&gt; : Sets the title of the web page shown on the browser
+          tab.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;body&gt; : Contains all the visible content on the web page, such
+          as text, images, and links. tab.
+        </p>
+      </div>
+    </div>
+    <div class="options">
+      <h4 class="tags_title">2. Headings and Text Tags</h4>
+      <div class="tags_description">
+        <p>
+          &lt;h1&gt; : to &lt;h6&gt;: Heading tags, where &lt;h1&gt; is the
+          highest (main heading) and &lt;h6&gt; is the lowest.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>&lt;p&gt; : Defines a paragraph of text.</p>
+      </div>
+      <div class="tags_description">
+        <p>&lt;br&gt; : Inserts a line break within text.</p>
+      </div>
+      <div class="tags_description">
+        <p>&lt;hr&gt; : Adds a horizontal line for section separation.</p>
+      </div>
+    </div>
+    <div class="options">
+      <h4 class="tags_title">3. Formatting Tags</h4>
+      <div class="tags_description">
+        <p>
+          &lt;strong&gt; : Highlights important text, often rendered in bold.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>&lt;em&gt; : Emphasizes text, usually rendered in italics</p>
+      </div>
+      <div class="tags_description">
+        <p>&lt;b&gt; :Makes text bold (without semantic meaning).</p>
+      </div>
+      <div class="tags_description">
+        <p>&lt;i&gt; :Italicizes text (without semantic meaning).</p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;u&gt; : Underlines text (not commonly used in modern web design).
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>&lt;mark&gt; : Highlights text with a background color.</p>
+      </div>
+    </div>
+    <div class="options">
+      <h4 class="tags_title">4. List Tags</h4>
+      <div class="tags_description">
+        <p>&lt;ul&gt; :Creates an unordered (bulleted) list.</p>
+      </div>
+      <div class="tags_description">
+        <p>&lt;ol&gt; : Creates an ordered (numbered) list.</p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;li&gt; :Represents each item in a list, used within &lt;ul&gt; and
+          &lt;ol&gt; tags.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;dl&gt; :Defines a description list (often used for terms and
+          definitions).
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>&lt;dt&gt; : Defines a term in a description list.</p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;dd&gt; : Defines the description for the term in a description
+          list.
+        </p>
+      </div>
+    </div>
+    <div class="options">
+      <h4 class="tags_title">5. Link and Media Tags</h4>
+      <div class="tags_description">
+        <p>
+          &lt;a href="URL"&gt; : Anchor tag, used to create a hyperlink. The
+          <mark>href</mark> attribute specifies the link's destination.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;img src="URL" alt="Description"&gt; : Embeds an image on the page.
+          src specifies the image's location, and alt provides a description for
+          accessibility.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;video src="URL" controls&gt; : Embeds a video player. controls
+          enables play, pause, and volume buttons.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>&lt;audio src="URL" controls&gt; : Embeds an audio player.</p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;iframe src="URL"&gt; :Embeds another webpage or video into the
+          current document, often used for embedding YouTube videos.
+        </p>
+      </div>
+    </div>
+    <div class="options">
+      <h4 class="tags_title">6. Table Tags</h4>
+      <div class="tags_description">
+        <p>
+          &lt;table&gt; : Creates a table to display data in rows and columns.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>&lt;tr&gt; : Table row, used within &lt;table&gt; to create rows.</p>
+      </div>
+      <div class="tags_description">
+        <p>&lt;th&gt; : Table header cell, typically bold and centered.</p>
+      </div>
+
+      <div class="tags_description">
+        <p>
+          &lt;td&gt; :Table data cell, represents standard cells within a row.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;coption&gt; : Adds a caption to a table, usually displayed at the
+          top.
+        </p>
+      </div>
+    </div>
+    <div class="options">
+      <h4 class="tags_title">7. Form Tags</h4>
+      <div class="tags_description">
+        <p>
+          &lt;form action="URL" method="POST/GET"&gt; : Starts a form that
+          collects user input. action defines where the data will be sent, and
+          <mark>method</mark> defines how.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;input type="text"&gt; : Basic input field for single-line text.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;input type="email"&gt; : Input field for email addresses, with
+          built-in validation.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;input type="password"&gt; : Input field that hides text for
+          passwords.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>&lt;textarea&gt; : Multi-line text input.</p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;button&gt; : Clickable button, often used for form submission.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>&lt;select&gt; : Dropdown list.</p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;option &gt; :Represents an item in a dropdown list within
+          &lt;select&gt;.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;label&gt; :Defines a label for form elements, linking to them with
+          the <mark> for</mark> attribute.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>&lt;fieldset&gt; : Groups related form elements.</p>
+      </div>
+      <div class="tags_description">
+        <p>&lt;legend&gt; : Adds a caption for &lt;fieldset&gt;.</p>
+      </div>
+    </div>
+    <div class="options">
+      <h4 class="tags_title">8. Semantic and Structural Tags</h4>
+      <div class="tags_description">
+        <p>&lt;header&gt; :Defines the header section of a page or section.</p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;footer&gt; : Defines the footer section, often used for copyright,
+          links, and information at the bottom.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>&lt;nav&gt; :Used for navigation links, like menus.</p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;section&gt; : Groups related content, creating logical sections.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;article&gt; : Self-contained content like blog posts or news
+          articles.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;aside&gt; :Side content, often used for ads, sidebars, or related
+          links.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;main&gt; :Represents the main content of the document, unique to
+          the page.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;div&gt; :A generic container for grouping elements, often styled
+          with CSS.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>&lt;span&gt; : Inline container for styling a small part of text.</p>
+      </div>
+    </div>
+    <div class="options">
+      <h4 class="tags_title">9. Metadata and Script Tags</h4>
+      <div class="tags_description">
+        <p>
+          &lt;meta charset="UTF-8"&gt; :Sets the character encoding of the
+          document.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;meta name="viewport" content="width=device-width,
+          initial-scale=1.0"&gt; :Sets viewport for responsive design.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;link rel="stylesheet" href="style.css"&gt; :Links to an external
+          CSS file.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;script src="script.js"&gt; :Embeds or links an external JavaScript
+          file for interactivity.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;style&gt; :Adds CSS styling directly within the HTML document.
+        </p>
+      </div>
+    </div>
+    <div class="options">
+      <h4 class="tags_title">10. Miscellaneous Tags</h4>
+      <div class="tags_description">
+        <p>
+          &lt;canvas&gt; : A container for graphics, often used with JavaScript
+          for drawing shapes or animations.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;svg&gt; :Scalable Vector Graphics, allows for embedding
+          vector-based images.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &ltdetails&gt; : Creates a disclosure widget that the user can open
+          and close.
+        </p>
+      </div>
+      <div class="tags_description">
+        <p>
+          &lt;summary&gt; : Provides a summary or title for the &lt;details&gt;
+          element.
+        </p>
+      </div>
+    </div>
+  </main>
+</div>

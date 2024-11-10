@@ -1,0 +1,303 @@
+<style>
+  * {
+    background-color: #e1e1e1;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto 3em auto;
+  }
+
+  .title {
+    text-align: center;
+    padding: 2em 0;
+    background-color: #f9860b;
+    transition: all 0.7s;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6), 0 2px 0 rgba(0, 0, 0, 0.5),
+      0 3px 0 rgba(0, 0, 0, 0.4), 0 4px 0 rgba(0, 0, 0, 0.3),
+      0 5px 0 rgba(0, 0, 0, 0.2), 0 6px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .title:hover {
+    color: #e1e1e1;
+    letter-spacing: 2px;
+  }
+
+  .options_title {
+    position: relative;
+    padding-bottom: 2px;
+    color: rgb(82, 80, 80);
+    text-decoration: none;
+    text-align: center;
+    margin: 1em 0;
+    padding: 10px 0;
+    transition: all 0.6s;
+    font-style: italic;
+  }
+
+  .options_title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: rgb(28, 28, 27);
+    transition: width 0.6s ease;
+    -webkit-box-reflect: below 3px linear-gradient(transparent, rgba(238, 66, 8, 0.667));
+  }
+
+  .options_title:hover::after,
+  .options_title:hover {
+    color: rgb(178, 188, 210);
+    font-style: oblique;
+    width: 100%;
+  }
+
+  /* Grid layout for rows */
+  .row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Auto-adjust columns */
+    gap: 16px;
+  }
+
+  /* Options styles */
+  .options {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .options:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  i {
+    font-size: 1em;
+    color: #370101;
+    transition: color 0.3s ease;
+    
+  }
+  i:hover{
+    color: #000000;
+    text-shadow: 1px 1px 2px #f9860b;
+  }
+
+  mark {
+    color: #000000;
+    background-color: #74aaec92;
+    border-radius: 3px;
+    padding: 0 10px;
+  }
+
+  @media (max-width: 768px) {
+    .options {
+      font-size: 1.2em;
+    }
+    .options i {
+      font-size: 0.9em;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .options {
+      padding: 15px;
+    }
+    .options {
+      font-size: 1em;
+    }
+    .options i {
+      font-size: 0.85em;
+    }
+  }
+</style>
+
+<h2 class="title">Basic CSS Styling</h2>
+<div class="container">
+  <h3 class="options_title">Text and Font Properties</h3>
+  <div class="row">
+    <!-- Text and Font Properties -->
+    <div class="options">
+      <i><mark>color</mark><br />Sets the color of text.</i>
+    </div>
+    <div class="options">
+      <i><mark>font-size</mark> <br>Controls the size of text.</i>
+    </div>
+    <div class="options">
+      <i><mark>font-weight</mark> <br>Sets the thickness of text (e.g., bold, normal, 400).</i>
+    </div>
+    <div class="options">
+      <i><mark>font-style</mark><br />Sets the font style (italic, normal).</i>
+    </div>
+    <div class="options">
+      <i><mark>text-align</mark><br />Aligns text horizontally (left, center, right, justify).</i>
+    </div>
+    <div class="options">
+      <i><mark>text-decoration</mark><br />Adds decorations like underline, overline, or line-through.</i>
+    </div>
+    <div class="options">
+      <i><mark>line-height</mark><br />Controls space between lines.</i>
+    </div>
+    <div class="options">
+      <i><mark>letter-spacing</mark><br />Adjusts space between characters.</i>
+    </div>
+    <div class="options">
+      <i><mark>font-family</mark><br />Specifies the font family for text.</i>
+    </div>
+    <div class="options">
+      <i><mark>text-transform</mark><br />Changes text case (uppercase, lowercase, capitalize).</i>
+    </div>
+  </div>
+
+  <h3 class="options_title">Layout Properties</h3>
+  <div class="row">
+    <div class="options">
+      <i><mark>display</mark><br />Specifies the display behavior of an element (block, inline, flex, grid).</i>
+    </div>
+    <div class="options">
+      <i><mark>width</mark><br />Sets the width of an element.</i>
+    </div>
+    <div class="options">
+      <i><mark>height</mark><br />Sets the height of an element.</i>
+    </div>
+    <div class="options">
+      <i><mark>margin</mark><br />Sets the outer space around an element.</i>
+    </div>
+    <div class="options">
+      <i><mark>padding</mark><br />Sets the inner space within an element.</i>
+    </div>
+    <div class="options">
+      <i><mark>overflow</mark><br />Specifies handling of overflow content (visible, hidden, scroll, auto).</i>
+    </div>
+  </div>
+
+  <h3 class="options_title">Background Properties</h3>
+  <div class="row">
+    <div class="options">
+      <i><mark>background-color</mark><br />Sets the background color of an element.</i>
+    </div>
+    <div class="options">
+      <i><mark>background-image</mark><br />Sets a background image for an element.</i>
+    </div>
+    <div class="options">
+      <i><mark>background-size</mark><br />Controls the size of the background image (cover, contain).</i>
+    </div>
+    <div class="options">
+      <i><mark>background-repeat</mark><br />Specifies if/how the background image repeats (repeat, no-repeat).</i>
+    </div>
+    <div class="options">
+      <i><mark>background-position</mark><br />Positions the background image.</i>
+    </div>
+  </div>
+
+  <h3 class="options_title">Border and Outline Properties</h3>
+  <div class="row">
+    <div class="options">
+      <i><mark>border</mark><br />Sets the border around an element (width, style, color).</i>
+    </div>
+    <div class="options">
+      <i><mark>border-radius</mark><br />Rounds the corners of an element.</i>
+    </div>
+    <div class="options">
+      <i><mark>outline</mark><br />Sets the outline around an element (like border but does not affect layout).</i>
+    </div>
+    <div class="options">
+      <i><mark>box-shadow</mark><br />Adds shadow around an element.</i>
+    </div>
+  </div>
+
+  <h3 class="options_title">Positioning Properties</h3>
+  <div class="row">
+    <div class="options">
+      <i><mark>position</mark><br />Specifies the positioning method (static, relative, absolute, fixed, sticky).</i>
+    </div>
+    <div class="options">
+      <i><mark>top</mark><br />Positions an element from the top.</i>
+    </div>
+    <div class="options">
+      <i><mark>left</mark><br />Positions an element from the left.</i>
+    </div>
+    <div class="options">
+      <i><mark>right</mark><br />Positions an element from the right.</i>
+    </div>
+    <div class="options">
+      <i><mark>bottom</mark><br />Positions an element from the bottom.</i>
+    </div>
+    <div class="options">
+      <i><mark>z-index</mark><br />Controls stacking order of elements (higher numbers are in front).</i>
+    </div>
+  </div>
+
+  <h3 class="options_title">Flexbox Properties</h3>
+  <div class="row">
+    <div class="options">
+      <i><mark>display: flex</mark><br />Sets an element as a flex container.</i>
+    </div>
+    <div class="options">
+      <i><mark>justify-content</mark><br />Aligns flex items horizontally (start, end, center, space-between).</i>
+    </div>
+    <div class="options">
+      <i><mark>align-items</mark><br />Aligns flex items vertically (start, end, center, stretch).</i>
+    </div>
+    <div class="options">
+      <i><mark>flex-direction</mark><br />Sets the direction of flex items (row, column).</i>
+    </div>
+    <div class="options">
+      <i><mark>flex-wrap</mark><br />Specifies if flex items wrap onto multiple lines.</i>
+    </div>
+  </div>
+
+  <h3 class="options_title">Grid Properties</h3>
+  <div class="row">
+    <div class="options">
+      <i><mark>display: grid</mark><br />Sets an element as a grid container.</i>
+    </div>
+    <div class="options">
+      <i><mark>grid-template-columns</mark><br />Defines the columns in a grid.</i>
+    </div>
+    <div class="options">
+      <i><mark>grid-template-rows</mark><br />Defines the rows in a grid.</i>
+    </div>
+    <div class="options">
+      <i><mark>gap</mark><br />Sets the gap between rows and columns in grid or flex layout.</i>
+    </div>
+  </div>
+
+  <h3 class="options_title">Animation and Transition Properties</h3>
+  <div class="row">
+    <div class="options">
+      <i><mark>transition</mark><br />Specifies transitions between states (duration, timing).</i>
+    </div>
+    <div class="options">
+      <i><mark>animation</mark><br />Specifies animation properties (name, duration, timing function).</i>
+    </div>
+    <div class="options">
+      <i><mark>transform</mark><br />Applies transformations like scale, rotate, translate, or skew.</i>
+    </div>
+  </div>
+
+  <h3 class="options_title">Other Properties</h3>
+  <div class="row">
+    <div class="options">
+      <i><mark>opacity</mark><br />Sets the transparency of an element (0 to 1).</i>
+    </div>
+    <div class="options">
+      <i><mark>visibility</mark><br />Controls visibility of an element (visible, hidden).</i>
+    </div>
+    <div class="options">
+      <i><mark>cursor</mark><br />Sets the type of cursor displayed when hovering over an element.</i>
+    </div>
+    <div class="options">
+      <i><mark>filter</mark><br />Applies visual effects like blur, brightness, contrast to an element.</i>
+    </div>
+  </div>
+
+</div>
+
+

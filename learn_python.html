@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python Concepts</title>
+  <style>
+    * {
+      background-color: #e1e1e19f;
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      border-radius: 5px;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto 2em auto;
+
+
+    }
+
+    .title {
+      text-align: center;
+      padding: 2em 0;
+      background-color: #f9860b;
+      transition: all 0.7s;
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6), 0 2px 0 rgba(0, 0, 0, 0.5),
+        0 3px 0 rgba(0, 0, 0, 0.4), 0 4px 0 rgba(0, 0, 0, 0.3),
+        0 5px 0 rgba(0, 0, 0, 0.2), 0 6px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .title:hover {
+      /* transform: translateX(-50%);
+      transform: rotateX(120deg); */
+
+      color: #e1e1e1;
+      letter-spacing: 2px;
+    }
+
+    .options_title {
+      position: relative;
+      padding-bottom: 2px;
+      color: rgb(82, 80, 80);
+      text-decoration: none;
+      text-align: center;
+      margin: 1em 0;
+      padding: 10px 0;
+      transition: all 0.6s;
+      font-style: italic;
+    }
+
+    .options_title::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: rgb(28, 28, 27);
+      transition: width 0.6s ease;
+      -webkit-box-reflect: below 3px linear-gradient(transparent, rgba(238, 66, 8, 0.667));
+    }
+
+    .options_title:hover::after,
+    .options_title:hover {
+      color: rgb(178, 188, 210);
+      font-style: oblique;
+      width: 100%;
+    }
+
+    /* Grid layout for rows */
+    .row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      /* Auto-adjust columns */
+      gap: 16px;
+      margin: 20px 10px;
+
+    }
+
+    /* Options styles */
+    .options {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .options:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    i {
+      font-size: 1em;
+      color: #370101;
+      transition: color 0.3s ease;
+      overflow-wrap: break-word;
+    }
+
+    i:hover {
+      color: #000000;
+      text-shadow: 1px 1px 2px #f9860b;
+    }
+
+    mark {
+      color: #000000;
+      background-color: #74aaec92;
+      border-radius: 3px;
+      padding: 0 10px;
+    }
+
+    @media (max-width: 768px) {
+      .options {
+        font-size: 1.2em;
+      }
+
+      .options i {
+        font-size: 0.9em;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .options {
+        padding: 15px;
+      }
+
+      .options {
+        font-size: 1em;
+      }
+
+      .options i {
+        font-size: 0.85em;
+      }
+    }
+
+    /* Highlight effect for clicked options */
+    .highlight {
+      background-color: #f9860b;
+      color: white;
+      border-radius: 5px;
+      padding: 10px;
+      transition: all 0.3s ease;
+    }
+  </style>
+</head>
+
+<body>
+  <h2 class="title">Python Concepts</h2>
+  <div class="container">
+    <div class="row">
+
+      <div class="options">
+        <i><mark>Variable Declaration</mark><br />A variable that stores data temporarily in Python (e.g.,
+          <code>name = 'John'</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>Data Types</mark><br />Different types of data in Python (e.g., integers, floats, strings,
+          booleans).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>String</mark><br />A sequence of characters (e.g., <code>'Hello, World!'</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>Integer</mark><br />A whole number (e.g., <code>5</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>Float</mark><br />A decimal number (e.g., <code>5.5</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>Boolean</mark><br />A logical value (e.g., <code>True</code> or <code>False</code>).</i>
+      </div>
+
+
+      <div class="options">
+        <i><mark>Function Definition</mark><br />Defines a reusable block of code (e.g., <code>def greet():</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>Comments</mark><br />Code comments that are ignored by the interpreter (e.g.,
+          <code># This is a comment</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>Conditionals</mark><br />A set of instructions that are executed based on a condition (e.g.,
+          <code>if x > 10:</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>Loops</mark><br />A set of instructions that are repeatedly executed (e.g.,
+          <code>for item in list:</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>Recursion</mark><br />A function that calls itself (e.g., <code>def factorial(n):</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>Object-Oriented Programming</mark><br />A programming paradigm based on the concept of "objects" that
+          can contain data and methods (e.g., <code>class Car:</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>Exception Handling</mark><br />A mechanism to handle errors in a program (e.g.,
+          <code>try/except</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>Regular Expressions</mark><br />A powerful tool for pattern matching and manipulation in text (e.g.,
+          <code>import re</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>Module</mark><br />A file containing Python code that can be imported into another file (e.g.,
+          <code>import my_module</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>Function Definition</mark><br />Defines a reusable block of code (e.g., <code>def greet():</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>Function Call</mark><br />Executes a function (e.g., <code>greet()</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>if-else</mark><br />A conditional statement for decision-making (e.g., <code>if x > 10:...</code>).</i>
+      </div>
+
+
+      <div class="options">
+        <i><mark>for</mark><br />A loop to iterate over a sequence (e.g., <code>for item in list:</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>while</mark><br />A loop that repeats as long as a condition is true (e.g.,
+          <code>while x < 10:</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>Class Definition</mark><br />Defines a class blueprint in OOP (e.g., <code>class Car:</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>List</mark><br />An ordered collection of items (e.g., <code>my_list = [1, 2, 3]</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>Dictionary</mark><br />A collection of key-value pairs (e.g.,
+          <code>my_dict = {'key': 'value'}</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>Tuple</mark><br />An immutable collection of items (e.g., <code>my_tuple = (1, 2, 3)</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>Set</mark><br />A collection of unique items (e.g., <code>my_set = {1, 2, 3}</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>Lambda Function</mark><br />A small anonymous function (e.g., <code>lambda x: x * 2</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>try-except</mark><br />Handles exceptions in code (e.g., <code>try: ... except:</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>Import</mark><br />Imports modules or packages (e.g., <code>import math</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>Range</mark><br />Generates a sequence of numbers (e.g., <code>range(1, 10)</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>List Comprehension</mark><br />Creates a new list from an existing one (e.g.,
+          <code>[x*2 for x in range(5)]</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>Map</mark><br />Applies a function to all items in an iterable (e.g., <code>map(str, list)</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>Reduce</mark><br />Applies a function to all items in an iterable and returns a single value (e.g.,
+          <code>reduce(lambda x, y: x + y, list)</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>List Sorting</mark><br />Sorts a list in ascending or descending order (e.g.,
+          <code>sorted(list)</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>List Indexing</mark><br />Accesses an item in a list by its index (e.g., <code>list[0]</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>List Concatenation</mark><br />Combines two or more lists (e.g.,
+          <code>list1 + list2</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>List Membership</mark><br />Checks if an item is in a list (e.g., <code>1 in list</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>List Deletion</mark><br />Removes an item from a list (e.g., <code>del list[0]</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>List Insertion</mark><br />Adds an item to a list at a specific index (e.g.,
+          <code>list.insert(0, 'new item')</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>List Updating</mark><br />Replaces an item in a list (e.g., <code>list[0] = 'new item'</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>List Comprehension</mark><br />Creates a new list from an existing one (e.g.,
+          <code>[x*2 for x in range(5)]</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>List Indexing</mark><br />Accesses an item in a list by its index (e.g., <code>list[0]</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>List Concatenation</mark><br />Combines two or more lists (e.g.,
+          <code>list1 + list2</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>List Membership</mark><br />Checks if an item is in a list (e.g., <code>1 in list</code>).</i>
+      </div>
+
+
+
+      <div class="options">
+        <i><mark>Filter</mark><br />Filters elements based on a condition (e.g.,
+          <code>filter(lambda x: x > 5, list)</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>Global and Local Variables</mark><br />Scope rules for variables (e.g., <code>global x</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>Decorator</mark><br />A function that modifies the behavior of another function (e.g.,
+          <code>@my_decorator</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>Inheritance</mark><br />A way to derive new classes from existing ones (e.g.,
+          <code>class Child(Parent):</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>Polymorphism</mark><br />A way to have multiple classes that can behave similarly (e.g.,
+          <code>class Animal(object):</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>Encapsulation</mark><br />A way to hide the internal details of a class (e.g.,
+          <code>class MyClass(object):</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>Abstraction</mark><br />A way to hide the implementation details of a class (e.g.,
+          <code>class MyClass(object):</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>Interface</mark><br />A way to define a common set of methods and properties (e.g.,
+          <code>class MyInterface(object):</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>Static Method</mark><br />A method that does not access any instance variables (e.g.,
+          <code>class MyClass(object):</code>).</i>
+      </div>
+
+
+      <div class="options">
+        <i><mark>File Handling</mark><br />Reading and writing to files (e.g., <code>open('file.txt', 'r')</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>List Slicing</mark><br />Accesses parts of a list (e.g., <code>my_list[1:4]</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>List Sorting</mark><br />Sorts a list in ascending or descending order (e.g.,
+          <code>sorted(list)</code>).</i>
+      </div>
+
+
+      <div class="options">
+        <i><mark>Zip</mark><br />Combines elements from multiple iterables (e.g., <code>zip(list1, list2)</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>Recursion</mark><br />A function that calls itself (e.g., <code>def factorial(n): ...</code>).</i>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
