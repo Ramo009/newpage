@@ -5,11 +5,10 @@
   }
 
   .container {
-    position: relative;
-    background-color: #c3c1c1;
-    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto 3em auto;
+
     text-align: center;
-    padding: 10px;
   }
 
   .title {
@@ -37,14 +36,14 @@
 
     border-radius: 4px;
     margin: 10px 0;
-    width: 10rem;
-    height: 30px;
+    width: 30%;
+    height: 40px;
     transition: width 0.5s ease;
   }
 
   input:hover,
   input:focus {
-    width: 16rem;
+    width: 50%;
   }
 
   input::selection {
@@ -73,7 +72,7 @@
   }
 
   .columns {
-    background: #e5eafbd9;
+    background: #e5eafbb9;
 
     padding: 20px;
     border-radius: 10px;
@@ -90,7 +89,7 @@
   }
 
   .columns:hover {
-    background: #f8f8f8f9;
+    background: #f8f8f8e0;
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   }
@@ -156,13 +155,32 @@
       </a>
     </div>
     <div class="columns">
-      <a href="learn_hack.html" target="_blank">
+      <a href="#" target="_blank">
         <h4>Linux Tutorial</h4>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel mollitia
           qui minima quidem unde perspiciatis, tempore voluptatibus, molestias,
           ipsa officiis dolores laborum veritatis? Ullam libero magni, ratione
           at repellat eos?
+        </p>
+      </a>
+    </div>
+    <div class="columns">
+      <a href="#" target="_blank">
+        <h4>Java Tutorial</h4>
+        <p>
+          Discover the fundamentals of Java programming and explore object-oriented
+          principles, syntax, and more. Ideal for both beginners and advanced learners.
+        </p>
+      </a>
+    </div>
+
+    <div class="columns">
+      <a href="#" target="_blank">
+        <h4>C# Tutorial</h4>
+        <p>
+          Learn C# from scratch, covering core concepts, data types, object-oriented
+          programming, and advanced features. Great for developing desktop and web apps.
         </p>
       </a>
     </div>
@@ -191,5 +209,26 @@
 
     // Mark that the user has visited, so they don't see the alert again
     localStorage.setItem("firstVisit", "true");
-  }
+  };
+
+  const body = document.querySelector('body');
+  const gradients = [
+    'linear-gradient(45deg, #ff6617, #449a8b)',
+    'linear-gradient(45deg, #3a7bd5, #3a6073)',
+    'linear-gradient(45deg, #f8ff00, #3ad59f)',
+    'linear-gradient(45deg, #00016c, #ff4b2b)',
+    'linear-gradient(45deg, #ff7e5f, #feb47b)',
+    'linear-gradient(45deg, #ffcc00, #ff9900)',
+    'linear-gradient(45deg, #ccffcc, #00ccff)',
+    'linear-gradient(45deg, #ffccff, #ccffff)',
+    'linear-gradient(45deg, #f99cff, #1199cc)',
+    'linear-gradient(45deg, #ccffff, #1fffcc)',
+    'linear-gradient(45deg, #ffffcc, #ccffcc)',
+  ];
+
+  let index = 0;
+  setInterval(() => {
+    body.style.background = gradients[index];
+    index = (index + 1) % gradients.length;
+  }, 4000); // Change gradient every 4 second
 </script>
