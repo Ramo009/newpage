@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JavaScript Concepts</title>
   <style>
+    @import url("https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap");
+
     * {
       background-color: #e1e1e19f;
       padding: 0;
@@ -12,6 +15,7 @@
       box-sizing: border-box;
       border-radius: 5px;
     }
+
     body {
       font-family: Arial, sans-serif;
     }
@@ -19,24 +23,26 @@
     .container {
       max-width: 1200px;
       margin: 0 auto 3em auto;
-      
-      
+
+
     }
 
     .title {
+      font-style: italic;
+      font-variant-numeric: lining-nums;
       text-align: center;
       padding: 2em 0;
       background-color: #f9860b;
       transition: all 0.7s;
       text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6), 0 2px 0 rgba(0, 0, 0, 0.5),
-      0 3px 0 rgba(0, 0, 0, 0.4), 0 4px 0 rgba(0, 0, 0, 0.3),
-      0 5px 0 rgba(0, 0, 0, 0.2), 0 6px 0 rgba(0, 0, 0, 0.1);
+        0 3px 0 rgba(0, 0, 0, 0.4), 0 4px 0 rgba(0, 0, 0, 0.3),
+        0 5px 0 rgba(0, 0, 0, 0.2), 0 6px 0 rgba(0, 0, 0, 0.1);
     }
 
     .title:hover {
       /* transform: translateX(-50%);
       transform: rotateX(120deg); */
-     
+
       color: #e1e1e1;
       letter-spacing: 2px;
     }
@@ -75,10 +81,11 @@
     /* Grid layout for rows */
     .row {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Auto-adjust columns */
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      /* Auto-adjust columns */
       gap: 16px;
       margin: 20px 10px;
-      
+
     }
 
     /* Options styles */
@@ -101,7 +108,7 @@
       transition: color 0.3s ease;
       overflow-wrap: break-word;
     }
-    
+
     i:hover {
       color: #000000;
       text-shadow: 1px 1px 2px #f9860b;
@@ -118,6 +125,7 @@
       .options {
         font-size: 1.2em;
       }
+
       .options i {
         font-size: 0.9em;
       }
@@ -127,9 +135,11 @@
       .options {
         padding: 15px;
       }
+
       .options {
         font-size: 1em;
       }
+
       .options i {
         font-size: 0.85em;
       }
@@ -143,9 +153,9 @@
       padding: 10px;
       transition: all 0.3s ease;
     }
-
   </style>
 </head>
+
 <body>
 
   <h2 class="title">JavaScript Concepts</h2>
@@ -156,17 +166,20 @@
         <i><mark>var</mark><br />This is a public variable to be used everywhere (e.g., <code>var x = 10;</code>).</i>
       </div>
       <div class="options">
-        <i><mark>let</mark><br />A block-scoped variable, usually for temporary values (e.g., <code>let name = 'John';</code>).</i>
+        <i><mark>let</mark><br />A block-scoped variable, usually for temporary values (e.g.,
+          <code>let name = 'John';</code>).</i>
       </div>
       <div class="options">
-        <i><mark>const</mark><br />A constant variable that cannot be reassigned (e.g., <code>const PI = 3.14;</code>).</i>
+        <i><mark>const</mark><br />A constant variable that cannot be reassigned (e.g.,
+          <code>const PI = 3.14;</code>).</i>
       </div>
     </div>
 
     <h3 class="options_title">Operators</h3>
     <div class="row">
       <div class="options">
-        <i><mark>+</mark><br />Addition operator, used to add numbers or concatenate strings (e.g., <code>10 + 5</code> or <code>'Hello' + ' ' + 'World'</code>).</i>
+        <i><mark>+</mark><br />Addition operator, used to add numbers or concatenate strings (e.g., <code>10 + 5</code>
+          or <code>'Hello' + ' ' + 'World'</code>).</i>
       </div>
       <div class="options">
         <i><mark>-</mark><br />Subtraction operator, used to subtract numbers (e.g., <code>10 - 5</code>).</i>
@@ -181,59 +194,72 @@
         <i><mark>==</mark><br />Equality operator, used to compare values (e.g., <code>5 == '5'</code>).</i>
       </div>
       <div class="options">
-        <i><mark>===</mark><br />Strict equality operator, compares values and their types (e.g., <code>5 === '5'</code> is false).</i>
+        <i><mark>===</mark><br />Strict equality operator, compares values and their types (e.g., <code>5 === '5'</code>
+          is false).</i>
       </div>
     </div>
 
     <h3 class="options_title">Functions</h3>
     <div class="row">
       <div class="options">
-        <i><mark>Function Declaration</mark><br />A named function that can be called (e.g., <code>function greet() { console.log('Hello'); }</code>).</i>
+        <i><mark>Function Declaration</mark><br />A named function that can be called (e.g.,
+          <code>function greet() { console.log('Hello'); }</code>).</i>
       </div>
       <div class="options">
-        <i><mark>Function Expression</mark><br />A function assigned to a variable (e.g., <code>const greet = function() { console.log('Hello'); };</code>).</i>
+        <i><mark>Function Expression</mark><br />A function assigned to a variable (e.g.,
+          <code>const greet = function() { console.log('Hello'); };</code>).</i>
       </div>
       <div class="options">
-        <i><mark>Arrow Function</mark><br />A concise way to write functions (e.g., <code>const greet = () => { console.log('Hello'); };</code>).</i>
+        <i><mark>Arrow Function</mark><br />A concise way to write functions (e.g.,
+          <code>const greet = () => { console.log('Hello'); };</code>).</i>
       </div>
     </div>
 
     <h3 class="options_title">Arrays</h3>
     <div class="row">
       <div class="options">
-        <i><mark>Array Declaration</mark><br />Arrays are ordered collections (e.g., <code>let arr = [1, 2, 3];</code>).</i>
+        <i><mark>Array Declaration</mark><br />Arrays are ordered collections (e.g.,
+          <code>let arr = [1, 2, 3];</code>).</i>
       </div>
       <div class="options">
-        <i><mark>Array Method - push</mark><br />Adds an element to the end of the array (e.g., <code>arr.push(4);</code>).</i>
+        <i><mark>Array Method - push</mark><br />Adds an element to the end of the array (e.g.,
+          <code>arr.push(4);</code>).</i>
       </div>
       <div class="options">
-        <i><mark>Array Method - pop</mark><br />Removes the last element of the array (e.g., <code>arr.pop();</code>).</i>
+        <i><mark>Array Method - pop</mark><br />Removes the last element of the array (e.g.,
+          <code>arr.pop();</code>).</i>
       </div>
       <div class="options">
-        <i><mark>Array Method - map</mark><br />Creates a new array by applying a function to each element (e.g., <code>arr.map(x => x * 2);</code>).</i>
+        <i><mark>Array Method - map</mark><br />Creates a new array by applying a function to each element (e.g.,
+          <code>arr.map(x => x * 2);</code>).</i>
       </div>
       <div class="options">
-        <i><mark>Array Method - filter</mark><br />Creates a new array with elements that pass a test (e.g., <code>arr.filter(x => x > 2);</code>).</i>
+        <i><mark>Array Method - filter</mark><br />Creates a new array with elements that pass a test (e.g.,
+          <code>arr.filter(x => x > 2);</code>).</i>
       </div>
     </div>
 
     <h3 class="options_title">Loops</h3>
     <div class="row">
       <div class="options">
-        <i><mark>for</mark><br />A basic loop for iterating over arrays or numbers (e.g., <code>for(let i = 0; i < 5; i++) { console.log(i); }</code>).</i>
+        <i><mark>for</mark><br />A basic loop for iterating over arrays or numbers (e.g.,
+          <code>for(let i = 0; i < 5; i++) { console.log(i); }</code>).</i>
       </div>
       <div class="options">
-        <i><mark>while</mark><br />A loop that runs while a condition is true (e.g., <code>while (x < 5) { x++; }</code>).</i>
+        <i><mark>while</mark><br />A loop that runs while a condition is true (e.g.,
+          <code>while (x < 5) { x++; }</code>).</i>
       </div>
       <div class="options">
-        <i><mark>forEach</mark><br />An array method that executes a function for each item in the array (e.g., <code>arr.forEach(x => console.log(x));</code>).</i>
+        <i><mark>forEach</mark><br />An array method that executes a function for each item in the array (e.g.,
+          <code>arr.forEach(x => console.log(x));</code>).</i>
       </div>
     </div>
 
     <h3 class="options_title">Conditionals</h3>
     <div class="row">
       <div class="options">
-        <i><mark>if</mark><br />Executes code based on a condition (e.g., <code>if (x > 5) { console.log('Greater'); }</code>).</i>
+        <i><mark>if</mark><br />Executes code based on a condition (e.g.,
+          <code>if (x > 5) { console.log('Greater'); }</code>).</i>
       </div>
       <div class="options">
         <i><mark>else</mark><br />Provides an alternative condition (e.g., <code>if (x > 5) { } else { }</code>).</i>
@@ -246,13 +272,16 @@
     <h3 class="options_title">Objects</h3>
     <div class="row">
       <div class="options">
-        <i><mark>Object Literal</mark><br />An object is a collection of key-value pairs (e.g., <code>let person = { name: 'John', age: 30 };</code>).</i>
+        <i><mark>Object Literal</mark><br />An object is a collection of key-value pairs (e.g.,
+          <code>let person = { name: 'John', age: 30 };</code>).</i>
       </div>
       <div class="options">
-        <i><mark>Access Object Property</mark><br />Accessing a property of an object (e.g., <code>person.name</code>).</i>
+        <i><mark>Access Object Property</mark><br />Accessing a property of an object (e.g.,
+          <code>person.name</code>).</i>
       </div>
       <div class="options">
-        <i><mark>Object Method</mark><br />An object can also contain functions (e.g., <code>let person = { greet: function() { console.log('Hello'); } }</code>).</i>
+        <i><mark>Object Method</mark><br />An object can also contain functions (e.g.,
+          <code>let person = { greet: function() { console.log('Hello'); } }</code>).</i>
       </div>
     </div>
 
@@ -262,7 +291,7 @@
     // Highlight selected option
     const options = document.querySelectorAll('.options');
     options.forEach(option => {
-      option.addEventListener('click', function() {
+      option.addEventListener('click', function () {
         options.forEach(opt => opt.classList.remove('highlight'));
         this.classList.add('highlight');
       });
@@ -276,7 +305,7 @@
     //   body.style.backgroundColor = colors[colorIndex];
     //   colorIndex = (colorIndex + 1) % colors.length;
     // }, 2000); // Change color every 2 seconds
-    
+
     const body = document.querySelector('body');
     const gradients = [
       'linear-gradient(45deg, #ff6617, #449a8b)',
@@ -300,4 +329,5 @@
   </script>
 
 </body>
+
 </html>
