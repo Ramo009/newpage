@@ -1,234 +1,196 @@
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<style>
-  * {
-    box-sizing: border-box;
-  }
+<!DOCTYPE html>
+<html lang="en">
 
-  .container {
-    max-width: 1200px;
-    margin: 0 auto 3em auto;
-
-    text-align: center;
-  }
-
-  .title {
-    text-align: center;
-    text-wrap: space-around;
-    color: #e4b20fbe;
-    opacity: 0.5;
-    padding: 3rem 0;
-    background: #521602c0;
-    background-image: url(intelligence.png);
-    background-blend-mode: color-dodge;
-    background-size: cover;
-    font-size: 30px !important;
-    font-weight: bold !important;
-  }
-
-  .title:hover {
-    opacity: 1;
-  }
-
-  input {
-    text-align: center;
-    border: 0 solid transparent;
-    outline: none;
-
-    border-radius: 4px;
-    margin: 10px 0;
-    width: 30%;
-    height: 40px;
-    transition: width 0.5s ease;
-  }
-
-  input:hover,
-  input:focus {
-    width: 50%;
-  }
-
-  input::selection {
-    color: red;
-  }
-
-  /* input[type="text"] {
-    width: 200px;
-    padding: 10px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    transition: border-color 0.3s, box-shadow 0.3s;
-  }
-
-  Hover effect using CSS 
-  input[type="text"]:hover {
-    border-color: #007bff;
-    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
-  }*/
-  .row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-
-
-  }
-
-  .columns {
-    background: #e5eafbb9;
-
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    font-size: 18px;
-    font-family: "Playfair Display", serif;
-  }
-
-  a {
-    text-decoration: none;
-    color: #333;
-  }
-
-  .columns:hover {
-    background: #f8f8f8e0;
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  }
-
-  @media screen and (max-width: 1026px) {
-    .row {
-      grid-template-columns: repeat(2, 1fr);
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
     }
-  }
 
-  @media screen and (max-width: 700px) {
-    .row {
-      grid-template-columns: repeat(1, 1fr);
+    .container {
+      max-width: 1200px;
+      margin: 0 auto 3em auto;
+      text-align: center;
     }
-  }
-</style>
-<div class="container">
-  <h3 class="title">Welcome to tutorials Page</h3>
-  <input type="text" id="search-input" placeholder="Search..." />
-  <div id="row_list" class="row">
-    <div class="columns">
-      <a href="learn_html.html" target="_blank">
-        <h4>HTML Tutorial</h4>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel mollitia
-          qui minima quidem unde perspiciatis, tempore voluptatibus, molestias,
-          ipsa officiis dolores laborum veritatis? Ullam libero magni, ratione
-          at repellat eos?
-        </p>
-      </a>
-    </div>
-    <div class="columns">
-      <a href="learn_css.html" target="_blank">
-        <h4>Css & Sass Tutorials</h4>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel mollitia
-          qui minima quidem unde perspiciatis, tempore voluptatibus, molestias,
-          ipsa officiis dolores laborum veritatis? Ullam libero magni, ratione
-          at repellat eos?
-        </p>
-      </a>
-    </div>
-    <div class="columns">
-      <a href="leran_js.html" target="_blank">
-        <h4>JS Tutorial</h4>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel mollitia
-          qui minima quidem unde perspiciatis, tempore voluptatibus, molestias,
-          ipsa officiis dolores laborum veritatis? Ullam libero magni, ratione
-          at repellat eos?
-        </p>
-      </a>
-    </div>
-    <div class="columns">
-      <a href="learn_python.html" target="_blank">
-        <h4>Python Tutorial</h4>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel mollitia
-          qui minima quidem unde perspiciatis, tempore voluptatibus, molestias,
-          ipsa officiis dolores laborum veritatis? Ullam libero magni, ratione
-          at repellat eos?
-        </p>
-      </a>
-    </div>
-    <div class="columns">
-      <a href="#" target="_blank">
-        <h4>Linux Tutorial</h4>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel mollitia
-          qui minima quidem unde perspiciatis, tempore voluptatibus, molestias,
-          ipsa officiis dolores laborum veritatis? Ullam libero magni, ratione
-          at repellat eos?
-        </p>
-      </a>
-    </div>
-    <div class="columns">
-      <a href="#" target="_blank">
-        <h4>Java Tutorial</h4>
-        <p>
-          Discover the fundamentals of Java programming and explore object-oriented
-          principles, syntax, and more. Ideal for both beginners and advanced learners.
-        </p>
-      </a>
-    </div>
 
-    <div class="columns">
-      <a href="#" target="_blank">
-        <h4>C# Tutorial</h4>
-        <p>
-          Learn C# from scratch, covering core concepts, data types, object-oriented
-          programming, and advanced features. Great for developing desktop and web apps.
-        </p>
-      </a>
+    .title {
+      text-align: center;
+      color: #e4b20fbe;
+      opacity: 0.5;
+      padding: 3rem 0;
+      background: #521602c0;
+      background-image: url('intelligence.png');
+      background-blend-mode: color-dodge;
+      background-size: cover;
+      font-size: 30px !important;
+      font-weight: bold !important;
+      transition: opacity 0.3s ease;
+    }
+
+    .title:hover {
+      opacity: 1;
+    }
+
+    input {
+      text-align: center;
+      border: none;
+      outline: none;
+      border-radius: 4px;
+      margin: 10px 0;
+      width: 30%;
+      height: 40px;
+      transition: width 0.5s ease;
+    }
+
+    input:hover,
+    input:focus {
+      width: 50%;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .columns {
+      background: #e5eafbb9;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      font-size: 18px;
+      font-family: "Playfair Display", serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .columns:hover {
+      background: #f8f8f8e0;
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    @media screen and (max-width: 1026px) {
+      .row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media screen and (max-width: 700px) {
+      .row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h3 class="title">Welcome to Tutorials Page</h3>
+    <input type="text" id="search-input" placeholder="Search..." />
+    <div id="row_list" class="row">
+      <!-- Tutorial Columns with Real Descriptions -->
+      <div class="columns">
+        <a href="learn_html.html" target="_blank">
+          <h4>HTML Tutorial</h4>
+          <p>Learn the structure of web pages with HTML, covering elements, attributes, and the fundamentals of building
+            a clean, well-organized webpage layout.</p>
+        </a>
+      </div>
+      <div class="columns">
+        <a href="learn_css.html" target="_blank">
+          <h4>CSS & Sass Tutorials</h4>
+          <p>Master styling with CSS, from selectors to layouts and animations, plus Sass for efficient styling with
+            variables, nesting, and mixins.</p>
+        </a>
+      </div>
+      <div class="columns">
+        <a href="learn_js.html" target="_blank">
+          <h4>JavaScript Tutorial</h4>
+          <p>Dive into JavaScript to make your web pages interactive. Learn about variables, loops, functions, and DOM
+            manipulation to enhance user experiences.</p>
+        </a>
+      </div>
+      <div class="columns">
+        <a href="learn_python.html" target="_blank">
+          <h4>Python Tutorial</h4>
+          <p>Explore Python programming from basics to advanced topics, including data structures, object-oriented
+            programming, and libraries for data science.</p>
+        </a>
+      </div>
+      <div class="columns">
+        <a href="#" target="_blank">
+          <h4>Linux Tutorial</h4>
+          <p>Get comfortable with Linux commands, file handling, and shell scripting, essential for managing servers and
+            developing in a Unix-based environment.</p>
+        </a>
+      </div>
+      <div class="columns">
+        <a href="#" target="_blank">
+          <h4>Java Tutorial</h4>
+          <p>Discover Java programming basics and object-oriented principles. Ideal for beginners and advanced learners
+            interested in Android and web development.</p>
+        </a>
+      </div>
+      <div class="columns">
+        <a href="#" target="_blank">
+          <h4>C# Tutorial</h4>
+          <p>Learn C# from scratch, covering core concepts, data types, object-oriented programming, and advanced
+            features for developing desktop and web applications.</p>
+        </a>
+      </div>
     </div>
   </div>
-</div>
-<script>
-  $(document).ready(function () {
-    $("#search-input").on("keyup", function () {
-      var searchText = $(this).val().toLowerCase();
 
-      // Filter through list items
-      $("#row_list .columns").filter(function () {
-        $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1);
+  <script>
+    $(document).ready(function () {
+      // Search functionality
+      $("#search-input").on("keyup", function () {
+        var searchText = $(this).val().toLowerCase();
+        $("#row_list .columns").filter(function () {
+          $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1);
+        });
       });
+
+      // Greet new users and store in local storage
+      if (!localStorage.getItem("firstVisit")) {
+        const userName = prompt("Please enter your Name:");
+        if (userName) {
+          alert("Welcome to my website, " + userName + "!");
+          localStorage.setItem("firstVisit", "true");
+        }
+      }
+
+      // Background gradient animation
+      const gradients = [
+        'linear-gradient(45deg, #ff6617, #449a8b)',
+        'linear-gradient(45deg, #3a7bd5, #3a6073)',
+        'linear-gradient(45deg, #f8ff00, #3ad59f)',
+        'linear-gradient(45deg, #00016c, #ff4b2b)',
+        'linear-gradient(45deg, #ff7e5f, #feb47b)',
+        'linear-gradient(45deg, #ffcc00, #ff9900)',
+        'linear-gradient(45deg, #ccffcc, #00ccff)',
+        'linear-gradient(45deg, #ffccff, #ccffff)',
+        'linear-gradient(45deg, #f99cff, #1199cc)',
+        'linear-gradient(45deg, #ccffff, #1fffcc)',
+        'linear-gradient(45deg, #ffffcc, #ccffcc)',
+      ];
+
+      let index = 0;
+      setInterval(() => {
+        document.body.style.background = gradients[index];
+        index = (index + 1) % gradients.length;
+      }, 4000);
     });
-  });
+  </script>
+</body>
 
-  // Check if the user is visiting for the first time
-  if (!localStorage.getItem("firstVisit")) {
-    str = "";
-
-    str = prompt("Please enther your Name ?");
-    // Show an alert
-
-    alert("Welcome to my website " + str);
-
-    // Mark that the user has visited, so they don't see the alert again
-    localStorage.setItem("firstVisit", "true");
-  };
-
-  const body = document.querySelector('body');
-  const gradients = [
-    'linear-gradient(45deg, #ff6617, #449a8b)',
-    'linear-gradient(45deg, #3a7bd5, #3a6073)',
-    'linear-gradient(45deg, #f8ff00, #3ad59f)',
-    'linear-gradient(45deg, #00016c, #ff4b2b)',
-    'linear-gradient(45deg, #ff7e5f, #feb47b)',
-    'linear-gradient(45deg, #ffcc00, #ff9900)',
-    'linear-gradient(45deg, #ccffcc, #00ccff)',
-    'linear-gradient(45deg, #ffccff, #ccffff)',
-    'linear-gradient(45deg, #f99cff, #1199cc)',
-    'linear-gradient(45deg, #ccffff, #1fffcc)',
-    'linear-gradient(45deg, #ffffcc, #ccffcc)',
-  ];
-
-  let index = 0;
-  setInterval(() => {
-    body.style.background = gradients[index];
-    index = (index + 1) % gradients.length;
-  }, 4000); // Change gradient every 4 second
-</script>
+</html>
