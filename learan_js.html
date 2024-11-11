@@ -193,6 +193,7 @@
       <div class="options">
         <i><mark>==</mark><br />Equality operator, used to compare values (e.g., <code>5 == '5'</code>).</i>
       </div>
+
       <div class="options">
         <i><mark>===</mark><br />Strict equality operator, compares values and their types (e.g., <code>5 === '5'</code>
           is false).</i>
@@ -213,6 +214,25 @@
         <i><mark>Arrow Function</mark><br />A concise way to write functions (e.g.,
           <code>const greet = () => { console.log('Hello'); };</code>).</i>
       </div>
+      <div class="options">
+        <i><mark>Rest Parameter</mark><br />A parameter that accepts any number of arguments (e.g.,
+          <code>function sum(...args) { return args.reduce((a, b) => a + b, 0); }</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>Spread Operator</mark><br />Used to spread elements of an array into arguments (e.g.,
+          <code>function sum(a, b,...rest) { return a + b + rest.reduce((a, b) => a + b, 0); }</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>Template Literals</mark><br />Used to create strings with embedded expressions (e.g.,
+          <code>const name = 'John'; console.log(`Hello, ${name}!`);</code>).</i>
+
+      </div>
+      <div class="options">
+        <i><mark>Object Literal</mark><br />An object with properties and values (e.g.,
+          <code>let person = { name: 'John', age: 30 };</code>).</i>
+
+      </div>
+
     </div>
 
     <h3 class="options_title">Arrays</h3>
@@ -234,6 +254,50 @@
           <code>arr.map(x => x * 2);</code>).</i>
       </div>
       <div class="options">
+        <i><mark>Array Method - reduce</mark><br />Combines all elements of the array into a single value (e.g.,
+          <code>arr.reduce((a, b) => a + b, 0);</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>Array Method - join</mark><br />Combines all elements of the array into a string (e.g.,
+          <code>arr.join(', ');</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>Array Method - slice</mark><br />Creates a new array with a copy of a portion of the array (e.g.,
+          <code>arr.slice(0, 3);</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>Array Method - concat</mark><br />Creates a new array by merging two or more arrays (e.g.,
+          <code>arr.concat([4, 5, 6]);</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>Array Method - indexOf</mark><br />Returns the index of the first occurrence of an element (e.g.,
+          <code>arr.indexOf(3);</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>Array Method - splice</mark><br />Adds/removes elements from an array (e.g.,
+          <code>arr.splice(0, 1, 4);</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>Array Method - every</mark><br />Tests whether all elements pass a test (e.g.,
+          <code>arr.every(x => x > 2);</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>Array Method - some</mark><br />Tests whether any element passes a test (e.g.,
+          <code>arr.some(x => x > 2);</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>Array Method - forEach</mark><br />Executes a function for each item in the array (e.g.,
+          <code>arr.forEach(x => console.log(x));</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>Array Method - sort</mark><br />Sorts the elements of an array (e.g.,
+          <code>arr.sort((a, b) => a - b);</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>Array Method - reduceRight</mark><br />Combines all elements of the array into a single value (e.g.,
+          <code>arr.reduceRight((a, b) => a + b, 0);</code>).</i>
+      </div>
+      <div class="options">
         <i><mark>Array Method - filter</mark><br />Creates a new array with elements that pass a test (e.g.,
           <code>arr.filter(x => x > 2);</code>).</i>
       </div>
@@ -245,6 +309,56 @@
         <i><mark>for</mark><br />A basic loop for iterating over arrays or numbers (e.g.,
           <code>for(let i = 0; i < 5; i++) { console.log(i); }</code>).</i>
       </div>
+      <div class="options">
+        <i><mark>for...of</mark><br />A loop that iterates over each element of an iterable (e.g.,
+          <code>for(let num of [1, 2, 3]) { console.log(num); }</code>).</i>
+      </div>
+
+      <div class="options">
+        <i><mark>for...in</mark><br />A loop that iterates over the properties of an object (e.g.,
+          <code>for(let prop in obj) { console.log(prop); }</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>do...while</mark><br />A loop that runs at least once (e.g.,
+          <code>do { console.log('Hello'); } while (x < 5);</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>break</mark><br />Terminates the loop (e.g.,
+          <code>for(let i = 0; i < 5; i++) { if(i === 3) { break; } console.log(i); }</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>continue</mark><br />Terminates the current iteration and continues with the next one (e.g.,
+          <code>for(let i = 0; i < 5; i++) { if(i === 3) { continue; } console.log(i); }</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>return</mark><br />Terminates the function and returns a value (e.g.,
+          <code>function greet(name) { return 'Hello'+ name; }</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>throw</mark><br />Throws an error (e.g., <code>throw new Error('Error message');</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>try...catch</mark><br />A block of code to try and catch errors (e.g.,
+          <code>try { throw new Error('Error message'); } catch(error) { console.log(error.message); }</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>finally</mark><br />A block of code that will always run, regardless of whether an error occurred or
+          not (e.g.,
+          <code>try { throw new Error('Error message'); } finally { console.log('Finally block executed'); }</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>throw</mark><br />Throws an error (e.g., <code>throw new Error('Error message');</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>try...catch</mark><br />A block of code to try and catch errors (e.g.,
+          <code>try { throw new Error('Error message'); } catch(error) { console.log(error.message); }</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>finally</mark><br />A block of code that will always run, regardless of whether an error occurred or
+          not (e.g.,
+          <code>try { throw new Error('Error message'); } finally { console.log('Finally block executed'); }</code>).</i>
+      </div>
+
       <div class="options">
         <i><mark>while</mark><br />A loop that runs while a condition is true (e.g.,
           <code>while (x < 5) { x++; }</code>).</i>
@@ -265,6 +379,15 @@
         <i><mark>else</mark><br />Provides an alternative condition (e.g., <code>if (x > 5) { } else { }</code>).</i>
       </div>
       <div class="options">
+        <i><mark>else if</mark><br />Provides multiple alternative conditions (e.g.,
+          <code>if (x > 5) { } else if (x < 5) { }</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>ternary operator</mark><br />A compact way to write an if-else statement (e.g.,
+          <code>let message = x > 5? 'Greater' : 'Lesser';</code>).</i>
+      </div>
+
+      <div class="options">
         <i><mark>switch</mark><br />Tests multiple conditions (e.g., <code>switch(x) { case 1: break; }</code>).</i>
       </div>
     </div>
@@ -276,9 +399,23 @@
           <code>let person = { name: 'John', age: 30 };</code>).</i>
       </div>
       <div class="options">
+        <i><mark>Object Constructor</mark><br />Creating an object using a constructor function (e.g.,
+          <code>function Person(name, age) { this.name = name; this.age = age; }</code>).</i>
+      </div>
+
+      <div class="options">
         <i><mark>Access Object Property</mark><br />Accessing a property of an object (e.g.,
           <code>person.name</code>).</i>
       </div>
+      <div class="options">
+        <i><mark>Update Object Property</mark><br />Updating a property of an object (e.g.,
+          <code>person.name = 'Jane';</code>).</i>
+      </div>
+      <div class="options">
+        <i><mark>Delete Object Property</mark><br />Deleting a property of an object (e.g.,
+          <code>delete person.name;</code>).</i>
+      </div>
+
       <div class="options">
         <i><mark>Object Method</mark><br />An object can also contain functions (e.g.,
           <code>let person = { greet: function() { console.log('Hello'); } }</code>).</i>
