@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #001f3f;
+            /* Dark blue for night sky effect */
+            overflow: hidden;
+            /* Prevent scrolling */
+            position: relative;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -12em;
+            color: rgb(217, 226, 250);
+            font-size: 10px;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(100vh);
+                opacity: 1;
+            }
+        }
+
+        .text {
+            font-size: 20px;
+            text-align: center;
+            position: relative;
+
+
+        }
+
+        h2 {
+            margin-top: 25%;
+            position: relative;
+            letter-spacing: 20px;
+            text-align: center;
+            color: #e1e1e1;
+            font-size: xx-large;
+            text-shadow: 1px 2px 5px rgb(207, 215, 221);
+            /* background-color: rgba(239, 67, 67, 0.55); */
+            padding: 10px 20px;
+        }
+
+        h2::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(234, 32, 14, 0.7), rgb(255, 136, 0), rgba(10, 30, 210, 0.639));
+            opacity: 0.8;
+            mix-blend-mode: overlay;
+            animation: sweiper 3s linear infinite;
+        }
+
+        @keyframes sweiper {
+            0% {
+                left: -100%;
+
+                /* Start off-screen */
+            }
+
+            100% {
+                left: 100%;
+                color: rgb(249, 99, 5);
+                box-shadow: 1px 2px 5px red;
+                /* Move to off-screen right */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="text">
+        <h2>working on it...</h2>
+    </div>
+
+    <script>
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.textContent = '❄';
+            document.body.appendChild(snowflake);
+
+            // Random horizontal position, size, and animation duration
+            const size = Math.random() * 10 + 10;  // Random size between 10px and 20px
+            const leftPosition = Math.random() * window.innerWidth;
+            const animationDuration = Math.random() * 5 + 3;  // Random duration between 3s and 8s
+
+            // Apply styles dynamically
+            snowflake.style.left = `${leftPosition}px`;
+            snowflake.style.fontSize = `${size}px`;
+            snowflake.style.animation = `fall ${animationDuration}s linear infinite`;
+
+            // Remove the snowflake after its animation ends
+            setTimeout(() => {
+                snowflake.remove();
+            }, animationDuration * 1000); // Convert duration to milliseconds
+        }
+
+        // Generate multiple snowflakes at intervals
+        setInterval(createSnowflake, 100);  // Create a new snowflake every 100ms
+    </script>
+</body>
+
+</html>
