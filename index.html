@@ -109,6 +109,7 @@ nav ul li a {
   font-weight: bold;
   font-size: 10px;
   transition: color 0.3s;
+  font-size: 14px;
 }
 
 nav ul li a:hover {
@@ -123,7 +124,7 @@ main {
 
 #title {
   font-size:1.4em;
-  margin-bottom: 10px;
+  margin-bottom: 1.4rem;
   text-align: center;
   border-right: 2px solid rgba(255, 255, 255, 0); /* Cursor effect */
   white-space: nowrap; /* Prevent text from wrapping */
@@ -131,7 +132,7 @@ main {
   animation: blink 0.7s infinite; /* Cursor blink animation */
   font-family: "Playfair Display", serif;
   font-style: italic;
-  
+  font-weight: 700;
 }
 #title::before {
   content: "";
@@ -173,6 +174,7 @@ h2 {
   overflow: hidden;
  
 }
+.column,
 .col_links{
   margin-top: 1rem;
 }
@@ -455,8 +457,8 @@ footer .creator {
       </div>
       <nav>
         <ul>
-          <li><a href="#tutorials">Home</a></li>
-          <li><a href="#community">Community</a></li>
+          <li><a href="tutorials_temp.html">Home</a></li>
+          <li><a href="community.html">Community</a></li>
           <li><a href="tutorials_temp.html">Tutorials</a></li>
           <li><a href="about_me.html">About me</a></li>
         </ul>
@@ -1016,24 +1018,26 @@ footer .creator {
     <button id="scrollDown">Down</button>
     <button id="scrollToTop">Top</button>
     
-<script>
-     "use strict";
-     // Check if the user is visiting for the first time
-  if (!localStorage.getItem("firstVisit")) {
-    str = "";
+    <script src="particles.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+      "use strict";
+// Check if the user is visiting for the first time
+if (!localStorage.getItem("firstVisit")) {
+str = "";
 
-    str = prompt("Please enther your Name ?");
-    // Show an alert
-    alert("Welcome to my website " + str);
+str = prompt("Please enther your Name ?");
+// Show an alert
+alert("Welcome to my website " + str);
 
-    // Mark that the user has visited, so they don't see the alert again
-    localStorage.setItem("firstVisit", "true");
-  }
-     //h1 text animateconsole.log();
+// Mark that the user has visited, so they don't see the alert again
+localStorage.setItem("firstVisit", "true");
+}
+//h1 text animateconsole.log();
 const texts = [
-  "Welcome to my website!",
-  "Your Science Website!",
-  "More about Technology!",
+"Welcome to my website!",
+"Your Science Website!",
+"More about Technology!",
 ];
 
 let currentTextIndex = 0;
@@ -1041,29 +1045,29 @@ let charIndex = 0;
 let typingSpeed = 100; // Typing speed in milliseconds
 
 function typeWriter() {
-  if (charIndex < texts[currentTextIndex].length) {
-    document.getElementById("title").innerHTML +=
-      texts[currentTextIndex].charAt(charIndex);
-    charIndex++;
-    setTimeout(typeWriter, typingSpeed);
-  } else {
-    // Wait for 2 seconds before starting to erase the text
-    setTimeout(eraseWriter, 2000);
-  }
+if (charIndex < texts[currentTextIndex].length) {
+document.getElementById("title").innerHTML +=
+ texts[currentTextIndex].charAt(charIndex);
+charIndex++;
+setTimeout(typeWriter, typingSpeed);
+} else {
+// Wait for 2 seconds before starting to erase the text
+setTimeout(eraseWriter, 2000);
+}
 }
 
 function eraseWriter() {
-  if (charIndex > 0) {
-    document.getElementById("title").innerHTML = texts[
-      currentTextIndex
-    ].substring(0, charIndex - 1);
-    charIndex--;
-    setTimeout(eraseWriter, typingSpeed);
-  } else {
-    // Move to the next text
-    currentTextIndex = (currentTextIndex + 1) % texts.length; // Cycle through texts
-    setTimeout(typeWriter, 500); // Wait before starting to type the next text
-  }
+if (charIndex > 0) {
+document.getElementById("title").innerHTML = texts[
+ currentTextIndex
+].substring(0, charIndex - 1);
+charIndex--;
+setTimeout(eraseWriter, typingSpeed);
+} else {
+// Move to the next text
+currentTextIndex = (currentTextIndex + 1) % texts.length; // Cycle through texts
+setTimeout(typeWriter, 500); // Wait before starting to type the next text
+}
 }
 
 // Start typing effect when the page loads
@@ -1078,37 +1082,37 @@ const closeOverlayButton = document.getElementById("closeOverlayButton");
 
 // Function to open the overlay with dynamic content
 function openOverlay(title, content, image) {
-  overlayTitle.innerText = title;
-  overlayContent.innerText = content;
-  overlayImage.src = image;
-  overlayImage.alt = title; // Set alt attribute for accessibility
-  overlay.style.display = "flex"; // Show the overlay
+overlayTitle.innerText = title;
+overlayContent.innerText = content;
+overlayImage.src = image;
+overlayImage.alt = title; // Set alt attribute for accessibility
+overlay.style.display = "flex"; // Show the overlay
 }
 
 // Close overlay when clicking the close button
 closeOverlayButton.addEventListener("click", () => {
-  overlay.style.display = "none"; // Hide the overlay
+overlay.style.display = "none"; // Hide the overlay
 });
 
 // Close overlay when clicking outside the content
 overlay.addEventListener("click", (event) => {
-  if (event.target === overlay) {
-    overlay.style.display = "none";
-  }
+if (event.target === overlay) {
+overlay.style.display = "none";
+}
 });
 
 // Add click event to each column to open the overlay
 document.querySelectorAll(".column").forEach((column) => {
-  column.addEventListener("click", function () {
-    const title = column.getAttribute("data-title");
-    const content = column.getAttribute("data-content");
-    const image = column.getAttribute("data-image"); // Get the image source
-    openOverlay(title, content, image); // Open the overlay with the book's title, content, and image
-  });
+column.addEventListener("click", function () {
+const title = column.getAttribute("data-title");
+const content = column.getAttribute("data-content");
+const image = column.getAttribute("data-image"); // Get the image source
+openOverlay(title, content, image); // Open the overlay with the book's title, content, and image
+});
 });
 // Particles.js configuration
 particlesJS.load("particles-js", "particles.json", function () {
-  console.log("callback - particles.js config loaded");
+console.log("callback - particles.js config loaded");
 });
 
 // Scroll to Next Section
@@ -1116,28 +1120,28 @@ const scrollDownButton = document.getElementById("scrollDown");
 const nextSection = document.getElementById("articles"); // The next section you want to scroll to
 
 scrollDownButton.onclick = function () {
-  // Scroll to the next section smoothly
-  nextSection.scrollIntoView({ behavior: "smooth" });
+// Scroll to the next section smoothly
+nextSection.scrollIntoView({ behavior: "smooth" });
 };
 
 // Scroll to Top Button
 const scrollToTopButton = document.getElementById("scrollToTop");
 
 window.onscroll = function () {
-  if (
-    document.body.scrollTop > 100 ||
-    document.documentElement.scrollTop > 100
-  ) {
-    scrollToTopButton.style.display = "block"; // Show button when scrolled down
-    scrollDownButton.style.display = "none"; // Hide scroll down button when scrolled down
-  } else {
-    scrollToTopButton.style.display = "none"; // Hide button when at the top
-    scrollDownButton.style.display = "block"; // Show scroll down button when at the top
-  }
+if (
+document.body.scrollTop > 100 ||
+document.documentElement.scrollTop > 100
+) {
+scrollToTopButton.style.display = "block"; // Show button when scrolled down
+scrollDownButton.style.display = "none"; // Hide scroll down button when scrolled down
+} else {
+scrollToTopButton.style.display = "none"; // Hide button when at the top
+scrollDownButton.style.display = "block"; // Show scroll down button when at the top
+}
 };
 
 scrollToTopButton.onclick = function () {
-  window.scrollTo({ top: 0, behavior: "smooth" }); // Smooth scroll to top
+window.scrollTo({ top: 0, behavior: "smooth" }); // Smooth scroll to top
 };
 particlesJS("particles-js", {
   particles: {
@@ -1189,7 +1193,7 @@ particlesJS("particles-js", {
     line_linked: {
       enable: true,
       distance: 150,
-      color: "#fff",
+      color: "#ffffff",
       opacity: 0.4,
       width: 1,
     },
@@ -1249,6 +1253,7 @@ particlesJS("particles-js", {
   },
   retina_detect: true,
 });
-</script>
+
+    </script>
   </body>
 </html>
