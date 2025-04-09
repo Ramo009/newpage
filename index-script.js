@@ -1,11 +1,7 @@
 "use strict";
 
 //h1 text animateconsole.log();
-const texts = [
-  "Welcome to my website!",
-  "Your Science Website!",
-  "More about Technology!",
-];
+const texts = ["Your Science Website!", "More about Technology!"];
 
 let currentTextIndex = 0;
 let charIndex = 0;
