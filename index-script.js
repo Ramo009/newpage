@@ -1,218 +1,140 @@
-"use strict";
-
-//h1 text animateconsole.log();
-const texts = ["Your Science Website!", "More about Technology!"];
-
-let currentTextIndex = 0;
-let charIndex = 0;
-let typingSpeed = 100; // Typing speed in milliseconds
-
-function typeWriter() {
-  if (charIndex < texts[currentTextIndex].length) {
-    document.getElementById("title").innerHTML +=
-      texts[currentTextIndex].charAt(charIndex);
-    charIndex++;
-    setTimeout(typeWriter, typingSpeed);
-  } else {
-    // Wait for 2 seconds before starting to erase the text
-    setTimeout(eraseWriter, 2000);
-  }
-}
-
-function eraseWriter() {
-  if (charIndex > 0) {
-    document.getElementById("title").innerHTML = texts[
-      currentTextIndex
-    ].substring(0, charIndex - 1);
-    charIndex--;
-    setTimeout(eraseWriter, typingSpeed);
-  } else {
-    // Move to the next text
-    currentTextIndex = (currentTextIndex + 1) % texts.length; // Cycle through texts
-    setTimeout(typeWriter, 500); // Wait before starting to type the next text
-  }
-}
-
-// Start typing effect when the page loads
-window.onload = typeWriter;
-
-//Overlay js code
-const overlay = document.getElementById("overlay");
-const overlayTitle = document.getElementById("overlayTitle");
-const overlayContent = document.getElementById("overlayContent");
-const overlayImage = document.getElementById("overlayImage");
-const closeOverlayButton = document.getElementById("closeOverlayButton");
-
-// Function to open the overlay with dynamic content
-function openOverlay(title, content, image) {
-  overlayTitle.innerText = title;
-  overlayContent.innerText = content;
-  overlayImage.src = image;
-  overlayImage.alt = title; // Set alt attribute for accessibility
-  overlay.style.display = "flex"; // Show the overlay
-}
-
-// Close overlay when clicking the close button
-closeOverlayButton.addEventListener("click", () => {
-  overlay.style.display = "none"; // Hide the overlay
+ScrollReveal().reveal(".logo", {
+  distance: "50px",
+  origin: "left",
+  duration: 1000,
+  easing: "ease-in-out",
+  delay: 200,
 });
 
-// Close overlay when clicking outside the content
-overlay.addEventListener("click", (event) => {
-  if (event.target === overlay) {
-    overlay.style.display = "none";
-  }
+ScrollReveal().reveal("#start", {
+  delay: 200,
+  distance: "50px",
+  origin: "bottom",
+  duration: 1000,
+  easing: "ease-in-out",
+  scale: 0.6,
+  delay: 200,
+
+  beforeReveal: function (el) {
+    el.style.transform = "scale(0.8)";
+  },
+  afterReveal: function (el) {
+    el.style.transform = "scale(1)";
+  },
+});
+ScrollReveal().reveal("#projects", {
+  delay: 400,
+  distance: "50px",
+  origin: "right",
+  duration: 2000,
+  easing: "ease-in-out",
+});
+ScrollReveal().reveal("#contact", {
+  delay: 600,
+  distance: "50px",
+  origin: "bottom",
+  duration: 2000,
+  easing: "ease-in-out",
 });
 
-// Add click event to each column to open the overlay
-document.querySelectorAll(".column").forEach((column) => {
-  column.addEventListener("click", function () {
-    const title = column.getAttribute("data-title");
-    const content = column.getAttribute("data-content");
-    const image = column.getAttribute("data-image"); // Get the image source
-    openOverlay(title, content, image); // Open the overlay with the book's title, content, and image
+ScrollReveal().reveal("#skills", {
+  delay: 600,
+  distance: "50px",
+  origin: "bottom",
+  duration: 2000,
+  easing: "ease-in-out",
+  beforeReveal: function (el) {
+    el.style.transform = "translateY(50px)";
+  },
+  afterReveal: function (el) {
+    el.style.transform = "translateY(0)";
+  },
+});
+
+ScrollReveal().reveal("header h1", {
+  delay: 100,
+  //distance = width of header window
+  distance: "1000px",
+  origin: "left",
+  duration: 4000,
+  // from near logo come out and scale up to be fixed
+  scale: 0.1,
+  easing: "ease-in-out",
+  beforeReveal: function (el) {
+    el.style.transform = "scale(0.5) translateZ(-100px) rotateZ(160deg)";
+    el.style.color = "#ae4203";
+  },
+  afterReveal: function (el) {
+    el.style.transform = "scale(1) translateZ(0) rotateZ(0)";
+    el.style.color = "transparent";
+  },
+  // FROM LEFT COME OUT
+  beforeReveal: function (el) {
+    el.style.transform = "scale(0.5) translateZ(-100px) rotateY(160deg)";
+    el.style.color = "#ae4203";
+  },
+  afterReveal: function (el) {
+    el.style.transform = "scale(1) translateZ(0) rotateY(0)";
+    el.style.color = "transparent";
+  },
+});
+
+const canvas = document.getElementById("starfield");
+const ctx = canvas.getContext("2d");
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight * 0.7; // Adjust height to fit the header
+}
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+const STAR_COUNT = 600;
+const STAR_COLORS = ["#fff", "gold", "orange", "#ffd6fa"];
+const centerX = () => canvas.width / 2;
+const centerY = () => canvas.height / 2;
+const orbitRadius = Math.min(canvas.width, canvas.height) * 0.7;
+
+const stars = Array.from({ length: STAR_COUNT }, (_, i) => {
+  // Randomize both angle and orbit radius for more scattered effect
+  const angle = Math.random() * 2 * Math.PI;
+  // Occasionally make some stars larger (up to 5)
+  let radius = Math.random() * 1.2 + 0.5;
+  if (Math.random() < 0.08) {
+    // ~8% chance for a big star
+    radius = Math.random() * 3 + 2; // between 2 and 5
+  }
+  return {
+    angle,
+    radius,
+    color: STAR_COLORS[Math.floor(Math.random() * STAR_COLORS.length)],
+    twinkle: Math.random() * Math.PI * 8,
+    speed: 0.002 + Math.random() * 0.003, // angular speed
+    orbit: orbitRadius * (0.7 + Math.random() * 0.3),
+    // Fixed vertical offset for each star (so each star stays on its line)
+    offsetY: (Math.random() - 0.5) * orbitRadius * 0.8,
+    // No horizontal drift, stars move only along their orbit
+  };
+});
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  stars.forEach((star) => {
+    // Update star angle for movement
+    star.angle += star.speed;
+    // Twinkle effect
+    const twinkle = 0.7 + 0.3 * Math.sin(Date.now() * 0.002 + star.twinkle);
+    // Calculate star position
+    const x = centerX() + Math.cos(star.angle) * star.orbit;
+    const y = centerY() + Math.sin(star.angle) * star.orbit + star.offsetY;
+    ctx.beginPath();
+    ctx.arc(x, y, star.radius * twinkle, 0, 2 * Math.PI);
+    ctx.fillStyle = star.color;
+    ctx.globalAlpha = 0.7 * twinkle;
+    ctx.fill();
+    ctx.globalAlpha = 1;
   });
-});
-// Particles.js configuration
-particlesJS.load("particles-js", "particles.json", function () {
-  console.log("callback - particles.js config loaded");
-});
+  requestAnimationFrame(animate);
+}
 
-// Scroll to Next Section
-const scrollDownButton = document.getElementById("scrollDown");
-const nextSection = document.getElementById("articles"); // The next section you want to scroll to
-
-scrollDownButton.onclick = function () {
-  // Scroll to the next section smoothly
-  nextSection.scrollIntoView({ behavior: "smooth" });
-};
-
-// Scroll to Top Button
-const scrollToTopButton = document.getElementById("scrollToTop");
-
-window.onscroll = function () {
-  if (
-    document.body.scrollTop > 100 ||
-    document.documentElement.scrollTop > 100
-  ) {
-    scrollToTopButton.style.display = "block"; // Show button when scrolled down
-    scrollDownButton.style.display = "none"; // Hide scroll down button when scrolled down
-  } else {
-    scrollToTopButton.style.display = "none"; // Hide button when at the top
-    scrollDownButton.style.display = "block"; // Show scroll down button when at the top
-  }
-};
-
-scrollToTopButton.onclick = function () {
-  window.scrollTo({ top: 0, behavior: "smooth" }); // Smooth scroll to top
-};
-particlesJS("particles-js", {
-  particles: {
-    number: {
-      value: 100,
-      density: {
-        enable: true,
-        value_area: 800,
-      },
-    },
-    color: {
-      value: "#ffffff",
-    },
-    shape: {
-      type: "circle",
-      stroke: {
-        width: 0,
-        color: "#000000",
-      },
-      polygon: {
-        nb_sides: 5,
-      },
-      image: {
-        src: "img/github.svg",
-        width: 100,
-        height: 100,
-      },
-    },
-    opacity: {
-      value: 0.5,
-      random: false,
-      anim: {
-        enable: false,
-        speed: 1,
-        opacity_min: 0.1,
-        sync: false,
-      },
-    },
-    size: {
-      value: 5,
-      random: true,
-      anim: {
-        enable: false,
-        speed: 40,
-        size_min: 0.1,
-        sync: false,
-      },
-    },
-    line_linked: {
-      enable: true,
-      distance: 150,
-      color: "#fff",
-      opacity: 0.4,
-      width: 1,
-    },
-    move: {
-      enable: true,
-      speed: 6,
-      direction: "none",
-      random: false,
-      straight: false,
-      out_mode: "out",
-      bounce: false,
-      attract: {
-        enable: false,
-        rotateX: 600,
-        rotateY: 1200,
-      },
-    },
-  },
-  interactivity: {
-    detect_on: "window",
-    events: {
-      onhover: {
-        enable: true,
-        mode: ["grab", "bubble"],
-      },
-      onclick: {
-        enable: true,
-        mode: "repulse",
-      },
-      resize: true,
-    },
-    modes: {
-      grab: {
-        distance: 300,
-        line_linked: {
-          opacity: 1,
-        },
-      },
-      bubble: {
-        distance: 400,
-        size: 5,
-        duration: 2,
-        opacity: 8,
-        speed: 3,
-      },
-      repulse: {
-        distance: 200,
-        duration: 0.4,
-      },
-      push: {
-        particles_nb: 4,
-      },
-      remove: {
-        particles_nb: 2,
-      },
-    },
-  },
-  retina_detect: true,
-});
+animate();
