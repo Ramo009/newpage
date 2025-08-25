@@ -218,7 +218,7 @@ h3 {
   border-radius: 25px;
   outline: none;
   font-size: 0.9rem;
-  background: white;
+  background-color: #667eea;
   transition: border-color 0.3s ease;
 }
 
@@ -760,6 +760,9 @@ ul li {
     text-align: center;
     gap: 10px;
   }
+  .ai-tools-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -823,10 +826,20 @@ ul li {
   .profile-description {
     font-size: 1rem;
   }
+  .ai-tools-container {
+    grid-template-columns: 1fr;
+  }
+  .ai-tools-container .tool-card {
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  
+
   .profile-image {
     width: 100px;
     height: 100px;
   }
+
   .profile {
     flex-direction: column;
     align-items: center;
