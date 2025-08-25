@@ -829,11 +829,14 @@ ul li {
   .ai-tools-container {
     grid-template-columns: 1fr;
   }
-  .ai-tools-container .tool-card {
-    margin-bottom: 20px;
-    overflow: hidden;
+ 
+  .tool-card{
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 12px;
+    
   }
-  
 
   .profile-image {
     width: 100px;
