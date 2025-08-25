@@ -240,56 +240,221 @@ async function getAIResponse(message) {
   const lowerMessage = message.toLowerCase();
 
   // Programming-related responses
-  if (lowerMessage.includes("html") || lowerMessage.includes("web")) {
+  if (
+    lowerMessage.includes("html") ||
+    lowerMessage.includes("web") ||
+    lowerMessage.includes("website") ||
+    lowerMessage.includes("markup")
+  ) {
     return "HTML is the backbone of web development! It's a markup language used to structure content on web pages. Would you like to know about HTML tags, semantic elements, or how to get started?";
   }
 
-  if (lowerMessage.includes("css") || lowerMessage.includes("style")) {
+  if (
+    lowerMessage.includes("css") ||
+    lowerMessage.includes("style") ||
+    lowerMessage.includes("design") ||
+    lowerMessage.includes("layout") ||
+    lowerMessage.includes("color")
+  ) {
     return "CSS is fantastic for styling web pages! It controls the visual presentation - colors, layouts, animations, and responsive design. Are you interested in learning about Flexbox, Grid, or CSS animations?";
   }
 
-  if (lowerMessage.includes("javascript") || lowerMessage.includes("js")) {
+  if (
+    lowerMessage.includes("javascript") ||
+    lowerMessage.includes("js") ||
+    lowerMessage.includes("frontend") ||
+    lowerMessage.includes("interactive")
+  ) {
     return "JavaScript brings web pages to life! It's a versatile programming language for both frontend and backend development. You can create interactive elements, handle user events, and even build entire applications. What aspect of JavaScript interests you most?";
   }
 
-  if (lowerMessage.includes("python")) {
-    return "Python is an excellent choice for beginners! It has clean, readable syntax and is used in web development, data science, AI, and automation. Would you like suggestions for Python learning resources or project ideas?";
+  if (
+    lowerMessage.includes("nodejs") ||
+    lowerMessage.includes("node.js") ||
+    lowerMessage.includes("backend") ||
+    lowerMessage.includes("server") ||
+    lowerMessage.includes("api")
+  ) {
+    return "Node.js is a powerful JavaScript runtime for building server-side applications! It's great for creating APIs, real-time applications, and more. Would you like to learn about setting up a Node.js project or working with Express?";
   }
 
-  if (lowerMessage.includes("project") || lowerMessage.includes("build")) {
+  if (lowerMessage.includes("python")) {
+    return "While Python is great, I'd recommend Node.js for modern web development! Node.js lets you use JavaScript for both frontend and backend development, creating a unified development experience. Would you like to learn about Node.js instead?";
+  }
+
+  if (
+    lowerMessage.includes("react") ||
+    lowerMessage.includes("vue") ||
+    lowerMessage.includes("angular") ||
+    lowerMessage.includes("framework")
+  ) {
+    return "JavaScript frameworks like React, Vue, and Angular are excellent for building modern web applications! They help organize your code and create reusable components. Which framework interests you, or would you like me to recommend one for beginners?";
+  }
+
+  if (
+    lowerMessage.includes("database") ||
+    lowerMessage.includes("mongodb") ||
+    lowerMessage.includes("mysql") ||
+    lowerMessage.includes("data")
+  ) {
+    return "Databases are essential for storing and managing application data! For Node.js, I'd recommend starting with MongoDB (NoSQL) or MySQL (SQL). Which type of data storage are you interested in learning about?";
+  }
+
+  if (
+    lowerMessage.includes("git") ||
+    lowerMessage.includes("github") ||
+    lowerMessage.includes("version control")
+  ) {
+    return "Git and GitHub are essential tools for developers! Git helps you track changes in your code, while GitHub lets you store and collaborate on projects. Would you like to learn about basic Git commands or setting up your first repository?";
+  }
+
+  if (
+    lowerMessage.includes("responsive") ||
+    lowerMessage.includes("mobile") ||
+    lowerMessage.includes("tablet") ||
+    lowerMessage.includes("screen")
+  ) {
+    return "Responsive design ensures your website looks great on all devices! You can use CSS media queries, Flexbox, and CSS Grid to create layouts that adapt to different screen sizes. Want to learn about mobile-first design principles?";
+  }
+
+  if (
+    lowerMessage.includes("project") ||
+    lowerMessage.includes("build") ||
+    lowerMessage.includes("create") ||
+    lowerMessage.includes("make")
+  ) {
     return "Building projects is the best way to learn programming! Start with simple projects like a personal website, calculator, or to-do list. Each project teaches new concepts and builds your portfolio. What type of project interests you?";
   }
 
   if (
-    lowerMessage.includes("start") ||
-    lowerMessage.includes("begin") ||
-    lowerMessage.includes("learn")
+    lowerMessage.includes("portfolio") ||
+    lowerMessage.includes("showcase") ||
+    lowerMessage.includes("resume")
   ) {
-    return "Great question! Here's my advice for starting programming: 1) Choose a language (HTML/CSS for web, Python for general programming), 2) Follow online tutorials, 3) Practice daily, 4) Build small projects, 5) Join coding communities. What's your main interest - web development, mobile apps, or something else?";
+    return "A strong portfolio is crucial for developers! Include 3-5 projects that showcase different skills - a responsive website, an interactive app, and maybe an API project. Make sure to include live demos and source code links. Want tips on what projects to include?";
   }
 
-  if (lowerMessage.includes("career") || lowerMessage.includes("job")) {
-    return "Programming offers many exciting career paths! Web developers, software engineers, data scientists, mobile app developers, and more. The key is building a strong portfolio, contributing to open-source projects, and never stopping learning. What type of career interests you most?";
+  if (
+    lowerMessage.includes("job") ||
+    lowerMessage.includes("career") ||
+    lowerMessage.includes("hire") ||
+    lowerMessage.includes("interview")
+  ) {
+    return "The tech industry offers amazing career opportunities! Focus on building a strong portfolio, contributing to open source, networking, and practicing coding challenges. What type of developer role interests you most - frontend, backend, or full-stack?";
+  }
+
+  if (
+    lowerMessage.includes("beginner") ||
+    lowerMessage.includes("start") ||
+    lowerMessage.includes("begin") ||
+    lowerMessage.includes("new") ||
+    lowerMessage.includes("first time")
+  ) {
+    return "Welcome to programming! Here's my beginner roadmap: 1) Start with HTML/CSS for web basics, 2) Learn JavaScript for interactivity, 3) Practice with small projects, 4) Learn Node.js for backend, 5) Build a full portfolio. What's your main goal - websites, apps, or something else?";
+  }
+
+  if (
+    lowerMessage.includes("learn") ||
+    lowerMessage.includes("study") ||
+    lowerMessage.includes("tutorial") ||
+    lowerMessage.includes("course")
+  ) {
+    return "There are many great ways to learn programming! I recommend: freeCodeCamp (free), MDN docs (reference), YouTube tutorials, and building projects. What's your preferred learning style - video tutorials, interactive coding, or reading documentation?";
+  }
+
+  if (
+    lowerMessage.includes("difficult") ||
+    lowerMessage.includes("hard") ||
+    lowerMessage.includes("struggling") ||
+    lowerMessage.includes("stuck")
+  ) {
+    return "Don't worry - every programmer feels stuck sometimes! Break problems into smaller pieces, use console.log() to debug, search Stack Overflow, and don't hesitate to ask for help. What specific topic or problem are you struggling with?";
+  }
+
+  if (
+    lowerMessage.includes("time") ||
+    lowerMessage.includes("long") ||
+    lowerMessage.includes("quickly") ||
+    lowerMessage.includes("fast")
+  ) {
+    return "Learning programming takes time - typically 6 months to a year for job readiness if you practice consistently. Focus on fundamentals first, build projects regularly, and don't rush. Quality practice beats speed! What's your target timeline?";
+  }
+
+  if (
+    lowerMessage.includes("money") ||
+    lowerMessage.includes("salary") ||
+    lowerMessage.includes("pay") ||
+    lowerMessage.includes("income")
+  ) {
+    return "Programming can be very rewarding financially! Entry-level developers typically start at $50k-70k, with experienced developers earning $80k-150k+ depending on location and skills. Focus on building skills first - the money will follow! Any specific role you're curious about?";
+  }
+
+  if (
+    lowerMessage.includes("freelance") ||
+    lowerMessage.includes("freelancer") ||
+    lowerMessage.includes("clients")
+  ) {
+    return "Freelancing can be great for developers! Start by building a strong portfolio, learning client communication skills, and understanding project management. Platforms like Upwork and Fiverr can help you find first clients. What type of freelance work interests you?";
+  }
+
+  if (
+    lowerMessage.includes("ai") ||
+    lowerMessage.includes("artificial intelligence") ||
+    lowerMessage.includes("machine learning")
+  ) {
+    return "AI is an exciting field! While traditionally Python-focused, JavaScript now has great AI libraries too like TensorFlow.js. You can build AI features right into web apps! Are you interested in chatbots, image recognition, or something else?";
   }
 
   if (
     lowerMessage.includes("hello") ||
     lowerMessage.includes("hi") ||
-    lowerMessage.includes("hey")
+    lowerMessage.includes("hey") ||
+    lowerMessage.includes("greetings")
   ) {
-    return "Hello! I'm here to help you with programming questions and guidance. Whether you're just starting out or looking to advance your skills, I'm happy to assist with HTML, CSS, JavaScript, Python, project ideas, and career advice. What would you like to know?";
+    return "Hello! I'm your AI programming assistant! 👋 I'm here to help with web development, Node.js, career advice, project ideas, and learning guidance. What programming topic would you like to explore today?";
   }
 
-  if (lowerMessage.includes("help")) {
-    return "I'm here to help you with programming! I can assist with: 🌐 Web Development (HTML, CSS, JS), 🐍 Python programming, 💡 Project ideas, 🎯 Learning roadmaps, 💼 Career advice, 🔧 Debugging tips. What would you like help with?";
+  if (
+    lowerMessage.includes("help") ||
+    lowerMessage.includes("assist") ||
+    lowerMessage.includes("support")
+  ) {
+    return "I'm here to help you succeed in programming! 🚀 I can assist with: 🌐 Web Development (HTML, CSS, JS), ⚡ Node.js backend development, 💡 Project ideas & planning, 🎯 Learning roadmaps, 💼 Career guidance, 🔧 Debugging tips. What would you like help with?";
   }
 
-  // Default responses for general queries
+  if (
+    lowerMessage.includes("thank") ||
+    lowerMessage.includes("thanks") ||
+    lowerMessage.includes("appreciate")
+  ) {
+    return "You're very welcome! I'm happy to help you on your programming journey. Feel free to ask me anything else - whether it's technical questions, career advice, or project ideas. Good luck with your coding! 🎉";
+  }
+
+  if (
+    lowerMessage.includes("error") ||
+    lowerMessage.includes("bug") ||
+    lowerMessage.includes("debug") ||
+    lowerMessage.includes("fix")
+  ) {
+    return "Debugging is a crucial skill! Try these steps: 1) Read error messages carefully, 2) Use console.log() to check values, 3) Check syntax and typos, 4) Search the error on Stack Overflow, 5) Use browser dev tools. What kind of error are you encountering?";
+  }
+
+  if (
+    lowerMessage.includes("hosting") ||
+    lowerMessage.includes("deploy") ||
+    lowerMessage.includes("publish") ||
+    lowerMessage.includes("live")
+  ) {
+    return "Ready to show your project to the world? Great! For static sites, try Netlify or GitHub Pages (free). For Node.js apps, consider Heroku, Vercel, or Railway. Make sure your code is on GitHub first. Need help with deployment steps?";
+  }
+
+  // Default responses for unmatched queries - now more varied and helpful
   const defaultResponses = [
-    "That's an interesting question! Programming is all about problem-solving and creativity. Could you be more specific about what you'd like to learn?",
-    "I'd love to help you with that! Could you tell me more about your programming interests or current skill level?",
-    "Programming is such an exciting field! Whether you're interested in web development, mobile apps, or data science, there's always something new to learn. What specifically interests you?",
-    "Great question! I specialize in helping with programming concepts, project ideas, and learning paths. What programming topic can I help you explore?",
+    "That's an interesting question! Programming covers so many areas. Are you curious about web development, mobile apps, databases, or something else specific?",
+    "I'd love to help you with that! Could you tell me more? For example, are you looking for code examples, learning resources, or career advice?",
+    "Great question! I specialize in web development with HTML, CSS, JavaScript, and Node.js. What specific programming topic can I help you explore?",
+    "Programming is such a vast and exciting field! Whether you're interested in building websites, APIs, or learning new technologies, I'm here to help. What would you like to know more about?",
+    "I'm here to make programming easier for you! Feel free to ask about specific technologies, request code examples, or get advice on learning paths. What's on your mind?",
   ];
 
   return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
@@ -485,79 +650,136 @@ function validateForm(formData) {
   };
 }`,
     },
-    python: {
-      function: `def greet_user(name, greeting="Hello"):
-    """
-    Greets a user with a custom message
-    
-    Args:
-        name (str): The user's name
-        greeting (str): Custom greeting (default: "Hello")
-    
-    Returns:
-        str: Formatted greeting message
-    """
-    return f"{greeting}, {name}! Welcome to our application."
+    nodejs: {
+      function: `// Node.js Function Example
+function greetUser(name, greeting = "Hello") {
+    /**
+     * Greets a user with a custom message
+     * @param {string} name - The user's name
+     * @param {string} greeting - Custom greeting (default: "Hello")
+     * @returns {string} Formatted greeting message
+     */
+    return \`\${greeting}, \${name}! Welcome to our application.\`;
+}
 
-# Example usage
-user_greeting = greet_user("Alice")
-custom_greeting = greet_user("Bob", "Hi there")
-print(user_greeting)  # Output: Hello, Alice! Welcome to our application.`,
-      class: `class Student:
-    def __init__(self, name, age, student_id):
-        self.name = name
-        self.age = age
-        self.student_id = student_id
-        self.grades = []
+// Example usage
+const userGreeting = greetUser("Alice");
+const customGreeting = greetUser("Bob", "Hi there");
+console.log(userGreeting); // Output: Hello, Alice! Welcome to our application.
+
+// Export for use in other modules
+module.exports = { greetUser };`,
+      class: `// Node.js Class Example
+class Student {
+    constructor(name, age, studentId) {
+        this.name = name;
+        this.age = age;
+        this.studentId = studentId;
+        this.grades = [];
+    }
     
-    def add_grade(self, subject, grade):
-        """Add a grade for a subject"""
-        self.grades.append({"subject": subject, "grade": grade})
+    addGrade(subject, grade) {
+        /** Add a grade for a subject */
+        this.grades.push({ subject, grade });
+    }
     
-    def get_average_grade(self):
-        """Calculate and return the average grade"""
-        if not self.grades:
-            return 0
-        return sum(g["grade"] for g in self.grades) / len(self.grades)
+    getAverageGrade() {
+        /** Calculate and return the average grade */
+        if (this.grades.length === 0) return 0;
+        const sum = this.grades.reduce((acc, g) => acc + g.grade, 0);
+        return sum / this.grades.length;
+    }
     
-    def __str__(self):
-        return f"Student: {self.name} (ID: {self.student_id})"
+    toString() {
+        return \`Student: \${this.name} (ID: \${this.studentId})\`;
+    }
+}
 
-# Usage
-student = Student("Alice Johnson", 20, "S12345")
-student.add_grade("Math", 85)
-student.add_grade("Science", 92)
-print(f"Average: {student.get_average_grade():.1f}")`,
-      file: `# File Operations in Python
-import json
-import os
+// Usage
+const student = new Student("Alice Johnson", 20, "S12345");
+student.addGrade("Math", 85);
+student.addGrade("Science", 92);
+console.log(\`Average: \${student.getAverageGrade().toFixed(1)}\`);
 
-def read_json_file(filename):
-    """Read and parse a JSON file"""
-    try:
-        with open(filename, 'r', encoding='utf-8') as file:
-            data = json.load(file)
-        return data
-    except FileNotFoundError:
-        print(f"File '{filename}' not found.")
-        return None
-    except json.JSONDecodeError:
-        print(f"Invalid JSON in file '{filename}'.")
-        return None
+module.exports = Student;`,
+      server: `// Node.js Express Server Example
+const express = require('express');
+const cors = require('cors');
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-def write_json_file(filename, data):
-    """Write data to a JSON file"""
-    try:
-        with open(filename, 'w', encoding='utf-8') as file:
-            json.dump(data, file, indent=2)
-        print(f"Data saved to '{filename}'")
-    except Exception as e:
-        print(f"Error writing file: {e}")
+// Middleware
+app.use(cors());
+app.use(express.json());
+app.use(express.static('public'));
 
-# Example usage
-data = {"users": [{"name": "Alice", "age": 25}]}
-write_json_file("users.json", data)
-loaded_data = read_json_file("users.json")`,
+// Routes
+app.get('/', (req, res) => {
+    res.json({ message: 'Welcome to Node.js API!' });
+});
+
+app.get('/api/users', (req, res) => {
+    const users = [
+        { id: 1, name: 'Alice', email: 'alice@example.com' },
+        { id: 2, name: 'Bob', email: 'bob@example.com' }
+    ];
+    res.json(users);
+});
+
+app.post('/api/users', (req, res) => {
+    const { name, email } = req.body;
+    const newUser = { id: Date.now(), name, email };
+    res.status(201).json(newUser);
+});
+
+// Start server
+app.listen(PORT, () => {
+    console.log(\`Server running on http://localhost:\${PORT}\`);
+});`,
+      file: `// Node.js File Operations Example
+const fs = require('fs').promises;
+const path = require('path');
+
+async function readJsonFile(filename) {
+    /** Read and parse a JSON file */
+    try {
+        const filePath = path.join(__dirname, filename);
+        const data = await fs.readFile(filePath, 'utf8');
+        return JSON.parse(data);
+    } catch (error) {
+        if (error.code === 'ENOENT') {
+            console.log(\`File '\${filename}' not found.\`);
+            return null;
+        } else if (error instanceof SyntaxError) {
+            console.log(\`Invalid JSON in file '\${filename}'.\`);
+            return null;
+        }
+        throw error;
+    }
+}
+
+async function writeJsonFile(filename, data) {
+    /** Write data to a JSON file */
+    try {
+        const filePath = path.join(__dirname, filename);
+        const jsonData = JSON.stringify(data, null, 2);
+        await fs.writeFile(filePath, jsonData, 'utf8');
+        console.log(\`Data saved to '\${filename}'\`);
+    } catch (error) {
+        console.error(\`Error writing file: \${error.message}\`);
+        throw error;
+    }
+}
+
+// Example usage
+async function main() {
+    const data = { users: [{ name: "Alice", age: 25 }] };
+    await writeJsonFile("users.json", data);
+    const loadedData = await readJsonFile("users.json");
+    console.log('Loaded data:', loadedData);
+}
+
+main().catch(console.error);`,
     },
   };
 
@@ -624,26 +846,38 @@ document.addEventListener('DOMContentLoaded', function() {
         element.addEventListener('click', handleUserInteraction);
     });
 });`,
-    python: `# Python script for: ${request}
-def main():
-    """
-    Main function for: ${request}
-    """
-    print("Starting: ${request}")
+    nodejs: `// Node.js script for: ${request}
+const express = require('express');
+
+function main() {
+    /**
+     * Main function for: ${request}
+     */
+    console.log("Starting Node.js application: ${request}");
     
-    # Your implementation here
-    result = process_data()
-    print(f"Result: {result}")
+    // Your implementation here
+    const result = processData();
+    console.log(\`Result: \${result}\`);
+}
 
-def process_data():
-    """
-    Process data for: ${request}
-    """
-    # Implementation goes here
-    return "Processing complete"
+function processData() {
+    /**
+     * Process data for: ${request}
+     */
+    // Implementation goes here
+    return "Processing complete";
+}
 
-if __name__ == "__main__":
-    main()`,
+// Export functions for use in other modules
+module.exports = {
+    main,
+    processData
+};
+
+// Run if this file is executed directly
+if (require.main === module) {
+    main();
+}`,
   };
 
   return (
@@ -694,19 +928,23 @@ function getLearningPath(goal) {
 `;
   }
 
-  if (lowerGoal.includes("python")) {
+  if (
+    lowerGoal.includes("nodejs") ||
+    lowerGoal.includes("node.js") ||
+    lowerGoal.includes("backend")
+  ) {
     return `
-<h4>🐍 Python Programming Learning Path</h4>
+<h4>⚡ Node.js Programming Learning Path</h4>
 <ul>
-  <li><strong>Week 1-2:</strong> Python Basics - Variables, data types, control structures</li>
-  <li><strong>Week 3-4:</strong> Functions and Modules - Code organization, imports</li>
-  <li><strong>Week 5-6:</strong> Data Structures - Lists, dictionaries, sets, tuples</li>
-  <li><strong>Week 7-8:</strong> File Handling and Error Management</li>
-  <li><strong>Week 9-10:</strong> Object-Oriented Programming - Classes, inheritance</li>
-  <li><strong>Week 11-12:</strong> Popular Libraries - requests, pandas, matplotlib</li>
-  <li><strong>Ongoing:</strong> Practice with projects, contribute to open source</li>
+  <li><strong>Week 1-2:</strong> JavaScript Fundamentals - Variables, functions, ES6+ features</li>
+  <li><strong>Week 3-4:</strong> Node.js Basics - Runtime, modules, npm package management</li>
+  <li><strong>Week 5-6:</strong> Express.js Framework - Routing, middleware, REST APIs</li>
+  <li><strong>Week 7-8:</strong> Database Integration - MongoDB, MySQL, database design</li>
+  <li><strong>Week 9-10:</strong> Authentication & Security - JWT, bcrypt, API security</li>
+  <li><strong>Week 11-12:</strong> Testing & Deployment - Jest, Docker, cloud platforms</li>
+  <li><strong>Ongoing:</strong> Build full-stack applications, learn TypeScript</li>
 </ul>
-<p><strong>Resources:</strong> Python.org tutorial, Automate the Boring Stuff, Real Python</p>
+<p><strong>Resources:</strong> Node.js docs, Express.js guide, freeCodeCamp Node.js course</p>
 `;
   }
 
@@ -747,7 +985,7 @@ function getLearningPath(goal) {
 <h4>🚀 General Programming Learning Path for: ${goal}</h4>
 <ul>
   <li><strong>Week 1-2:</strong> Programming Fundamentals - Logic, problem-solving</li>
-  <li><strong>Week 3-4:</strong> Choose Your First Language - Python/JavaScript recommended</li>
+  <li><strong>Week 3-4:</strong> Choose Your First Language - JavaScript/Node.js recommended</li>
   <li><strong>Week 5-6:</strong> Practice Basic Projects - Calculator, simple games</li>
   <li><strong>Week 7-8:</strong> Data Structures and Algorithms basics</li>
   <li><strong>Week 9-10:</strong> Version Control - Git and GitHub</li>
