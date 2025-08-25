@@ -4,7 +4,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <!-- Removed invalid <link rel="profile"> tag. If you want to use a favicon, use: -->
+     <!-- i want a profile picture and have 50% border radius -->
+     <link rel="icon" type="image/jpeg" href="profile.jpg" />
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="manifest" href="manifest.json" />
     <link rel="stylesheet" href="style.css" />
@@ -17,12 +20,18 @@
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
     <script src="https://unpkg.com/scrollreveal"></script>
-    <!-- <title>Profile</title>
+     <title>Profile</title>
+     <style>
+      /* <link rel="icon" type="image/jpeg" href="profile.jpg" />  how to fix it and have border-radius 50%*/
+      link[rel="icon"] {
+        border-radius: 50%;
+      }
+     </style>
   </head>
   <body>
     <header>
       <div class="profile">
-        <img class="logo" src="logo.jpg" alt="image" />
+        <img class="logo" src="profile.jpg" alt="image" />
         <h1 class="profile-title">Profile</h1>
       </div>
      
@@ -87,17 +96,17 @@
             </div>
             <div class="col">
               <p class="sec-description">
-             
-                My skills include HTML, CSS, JavaScript, basic Linux tools like
-                Wireshark, information security, and Node.js. I am currently
-                learning MongoDB. I have experience in web development, data
-                analysis. I am always eager to learn new technologies and
-                improve my skills. I enjoy problem-solving and have a strong
-                foundation in algorithms and data structures. My goal is to
-                create efficient and user-friendly applications that solve
-                real-world problems. I am passionate about coding and enjoy
-                working on projects that challenge me to think creatively and
-                critically.
+
+                <!-- how to be skill to programming language?  not me its just a opinion-->
+                <em><b> Becoming skilled in programming languages requires dedication and</b></em>
+                <ul style="text-decoration: none;">
+                  <li>Practice regularly</li>
+                  <li>Build projects</li>
+                  <li>Read documentation</li>
+                  <li>Join coding communities</li>
+                  <li>Learn from others</li>
+                </ul>
+
               </p>
             </div>
           </div>
@@ -111,13 +120,12 @@
             <div class="col">
               <p class="sec-description">
                
-                I have learned a lot from my projects, but they were mostly
-                tests or challenges that I set for myself. I have not yet worked
-                on real-world projects. These experiences have helped me apply
-                my skills and gain practical knowledge in software development.
-                I enjoy collaborating with others and contributing to
-                open-source projects. My portfolio highlights some of my work,
-                and I am always seeking new challenges to overcome.
+                Working on projects is a crucial step in becoming proficient in programming.
+                Projects provide practical experience, allowing you to apply theoretical knowledge
+                to real-world scenarios. They help you understand the development process,
+                improve problem-solving skills, and enhance your ability to write clean and efficient code.
+                Additionally, projects can serve as a portfolio to showcase your skills to potential employers or clients.
+                Start with small projects and gradually take on more complex ones as you gain confidence and expertise.
               </p>
             </div>
           </div>
@@ -147,7 +155,7 @@
           ></a>
         </li>
       </ul>
-    </footer> -->
+    </footer>
   </body>
   <script src="index-script.js"></script>
 </html>

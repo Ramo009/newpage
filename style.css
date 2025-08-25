@@ -82,6 +82,8 @@ header {
   background-size: cover;
   z-index: 1000;
 }
+
+
 .profile-title {
   font-weight: 700;
   text-transform: uppercase;
@@ -231,6 +233,7 @@ header {
   transform: perspective(1000px) rotateY(30deg);
   transition: transform 1s linear;
 }
+
 .col img:hover {
   transform: perspective(1000px) rotateY(40deg);
 }
@@ -257,6 +260,9 @@ header {
   align-items: center;
   border-radius: 10px;
   margin-bottom: 4.4rem;
+}
+ul li {
+  color: #b1d6ef;
 }
 #projects {
   /* background: #053b5685;
