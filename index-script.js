@@ -185,6 +185,8 @@ async function sendMessage() {
   const chatMessages = document.getElementById("chat-messages");
   const message = chatInput.value.trim();
 
+  console.log("User message:", message); // Debug log
+
   if (!message) return;
 
   // Add user message
@@ -197,9 +199,11 @@ async function sendMessage() {
   try {
     // Get AI response
     const response = await getAIResponse(message);
+    console.log("AI response:", response); // Debug log
     hideTypingIndicator();
     addMessage(response, "bot");
   } catch (error) {
+    console.error("AI Error:", error); // Debug log
     hideTypingIndicator();
     addMessage("Sorry, I encountered an error. Please try again later.", "bot");
   }
@@ -237,7 +241,18 @@ function hideTypingIndicator() {
 
 // AI Response Function - Using a simple rule-based chatbot
 async function getAIResponse(message) {
+  console.log("getAIResponse called with:", message); // Debug log
   const lowerMessage = message.toLowerCase();
+  console.log("Lowercase message:", lowerMessage); // Debug log
+
+  // Quick test responses to verify the AI is working
+  if (lowerMessage === "test") {
+    return "🎉 AI is working perfectly! The test response is successful!";
+  }
+
+  if (lowerMessage === "hello") {
+    return "👋 Hello! I can see your message clearly. The AI is responding correctly!";
+  }
 
   // Programming-related responses
   if (
@@ -581,6 +596,63 @@ function getCodeSnippet(language, request) {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }`,
+      grid: `/* CSS Grid Layout */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.grid-item {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Advanced Grid */
+.layout-grid {
+  display: grid;
+  grid-template-areas: 
+    "header header header"
+    "sidebar main main"
+    "footer footer footer";
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}`,
+      button: `/* Modern Button Styles */
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid #667eea;
+  color: #667eea;
+}
+
+.btn-secondary:hover {
+  background: #667eea;
+  color: white;
+}`,
     },
     javascript: {
       dom: `// DOM Manipulation Examples
@@ -649,6 +721,55 @@ function validateForm(formData) {
     errors
   };
 }`,
+      array: `// Array Methods Examples
+const numbers = [1, 2, 3, 4, 5];
+
+// Map - transform each element
+const doubled = numbers.map(num => num * 2);
+console.log(doubled); // [2, 4, 6, 8, 10]
+
+// Filter - get elements that match condition
+const evenNumbers = numbers.filter(num => num % 2 === 0);
+console.log(evenNumbers); // [2, 4]
+
+// Reduce - combine all elements
+const sum = numbers.reduce((acc, num) => acc + num, 0);
+console.log(sum); // 15
+
+// Find - get first matching element
+const found = numbers.find(num => num > 3);
+console.log(found); // 4`,
+      function: `// Function Examples
+// Regular function
+function calculateArea(width, height) {
+    return width * height;
+}
+
+// Arrow function
+const calculateVolume = (width, height, depth) => {
+    return width * height * depth;
+};
+
+// Async function
+async function processData(data) {
+    try {
+        const processed = await performAsyncOperation(data);
+        return processed;
+    } catch (error) {
+        console.error('Processing failed:', error);
+        throw error;
+    }
+}
+
+// Higher-order function
+function createMultiplier(factor) {
+    return function(number) {
+        return number * factor;
+    };
+}
+
+const double = createMultiplier(2);
+console.log(double(5)); // 10`,
     },
     nodejs: {
       function: `// Node.js Function Example
@@ -783,10 +904,73 @@ main().catch(console.error);`,
     },
   };
 
-  // Find matching snippet
-  for (const [key, snippet] of Object.entries(snippets[language] || {})) {
-    if (lowerRequest.includes(key)) {
-      return snippet;
+  // Find matching snippet using smart keyword matching
+  const keywordMap = {
+    html: {
+      navigation: [
+        "nav",
+        "navbar",
+        "menu",
+        "navigation",
+        "header menu",
+        "top menu",
+      ],
+      form: [
+        "form",
+        "contact",
+        "input",
+        "contact form",
+        "login",
+        "signup",
+        "register",
+      ],
+      card: ["card", "box", "item", "product", "service card"],
+      hero: ["hero", "banner", "landing", "main section", "jumbotron"],
+      gallery: ["gallery", "portfolio", "images", "grid", "showcase"],
+      footer: ["footer", "bottom", "copyright", "social links"],
+      pricing: ["pricing", "plans", "subscription", "price table"],
+    },
+    css: {
+      responsive: [
+        "responsive",
+        "mobile",
+        "media query",
+        "breakpoint",
+        "device",
+      ],
+      flexbox: ["flex", "flexbox", "layout", "align", "justify"],
+      animation: ["animation", "transition", "hover", "effect", "keyframe"],
+      grid: ["grid", "css grid", "layout", "columns", "rows"],
+      button: ["button", "btn", "click", "hover button"],
+    },
+    javascript: {
+      dom: ["dom", "element", "query", "select", "click", "event"],
+      fetch: ["fetch", "api", "ajax", "request", "http", "data"],
+      validation: ["validate", "form validation", "check", "error"],
+      array: ["array", "list", "loop", "map", "filter"],
+      function: ["function", "method", "call", "return"],
+    },
+    nodejs: {
+      server: ["server", "express", "api", "backend", "route"],
+      function: ["function", "method", "export", "module"],
+      class: ["class", "object", "constructor", "method"],
+      file: ["file", "read", "write", "json", "fs"],
+    },
+  };
+
+  // Smart matching: check if any keyword matches
+  for (const [snippetKey, snippet] of Object.entries(
+    snippets[language] || {}
+  )) {
+    const keywords = keywordMap[language]?.[snippetKey] || [snippetKey];
+
+    for (const keyword of keywords) {
+      if (lowerRequest.includes(keyword)) {
+        console.log(
+          `Matched "${lowerRequest}" with keyword "${keyword}" for snippet "${snippetKey}"`
+        );
+        return snippet;
+      }
     }
   }
 
@@ -908,23 +1092,96 @@ async function generateLearningPath() {
 function getLearningPath(goal) {
   const lowerGoal = goal.toLowerCase();
 
+  // Frontend/Web Development
   if (
     lowerGoal.includes("web") ||
     lowerGoal.includes("frontend") ||
-    lowerGoal.includes("website")
+    lowerGoal.includes("website") ||
+    lowerGoal.includes("html") ||
+    lowerGoal.includes("css") ||
+    lowerGoal.includes("javascript")
   ) {
     return `
 <h4>🌐 Web Development Learning Path</h4>
 <ul>
-  <li><strong>Week 1-2:</strong> HTML Basics - Structure, tags, forms</li>
+  <li><strong>Week 1-2:</strong> HTML Basics - Structure, tags, forms, semantic HTML</li>
   <li><strong>Week 3-4:</strong> CSS Fundamentals - Styling, layout, responsive design</li>
   <li><strong>Week 5-6:</strong> JavaScript Basics - Variables, functions, DOM manipulation</li>
-  <li><strong>Week 7-8:</strong> Advanced CSS - Flexbox, Grid, animations</li>
-  <li><strong>Week 9-10:</strong> JavaScript Projects - Interactive websites, API calls</li>
+  <li><strong>Week 7-8:</strong> Advanced CSS - Flexbox, Grid, animations, SASS</li>
+  <li><strong>Week 9-10:</strong> JavaScript Projects - Interactive websites, API calls, ES6+</li>
   <li><strong>Week 11-12:</strong> Framework Introduction - React or Vue.js basics</li>
-  <li><strong>Ongoing:</strong> Build portfolio projects and practice daily</li>
+  <li><strong>Week 13-14:</strong> Build Portfolio - 3-5 projects showcasing your skills</li>
 </ul>
 <p><strong>Resources:</strong> MDN Docs, freeCodeCamp, CSS-Tricks, JavaScript.info</p>
+<p><strong>First Project Ideas:</strong> Personal portfolio, weather app, todo list</p>
+`;
+  }
+
+  // Backend/Node.js Development
+  if (
+    lowerGoal.includes("nodejs") ||
+    lowerGoal.includes("node.js") ||
+    lowerGoal.includes("backend") ||
+    lowerGoal.includes("server") ||
+    lowerGoal.includes("api")
+  ) {
+    return `
+<h4>⚡ Node.js Backend Development Learning Path</h4>
+<ul>
+  <li><strong>Week 1-2:</strong> JavaScript Fundamentals - ES6+, async/await, modules</li>
+  <li><strong>Week 3-4:</strong> Node.js Basics - Runtime, npm, file system, modules</li>
+  <li><strong>Week 5-6:</strong> Express.js Framework - Routing, middleware, REST APIs</li>
+  <li><strong>Week 7-8:</strong> Database Integration - MongoDB/MySQL, Mongoose/Sequelize</li>
+  <li><strong>Week 9-10:</strong> Authentication & Security - JWT, bcrypt, validation</li>
+  <li><strong>Week 11-12:</strong> Testing & Deployment - Jest, Docker, AWS/Heroku</li>
+  <li><strong>Week 13-14:</strong> Full-Stack Project - Complete web application</li>
+</ul>
+<p><strong>Resources:</strong> Node.js docs, Express.js guide, MongoDB University</p>
+<p><strong>Project Ideas:</strong> Blog API, e-commerce backend, chat application</p>
+`;
+  }
+
+  // Full-Stack Development
+  if (
+    lowerGoal.includes("fullstack") ||
+    lowerGoal.includes("full-stack") ||
+    lowerGoal.includes("full stack") ||
+    lowerGoal.includes("complete developer")
+  ) {
+    return `
+<h4>🚀 Full-Stack Development Learning Path</h4>
+<ul>
+  <li><strong>Month 1:</strong> Frontend Basics - HTML, CSS, JavaScript fundamentals</li>
+  <li><strong>Month 2:</strong> Frontend Advanced - React/Vue, state management, API calls</li>
+  <li><strong>Month 3:</strong> Backend Basics - Node.js, Express.js, REST APIs</li>
+  <li><strong>Month 4:</strong> Database & Auth - MongoDB/PostgreSQL, JWT, security</li>
+  <li><strong>Month 5:</strong> DevOps Basics - Git, testing, deployment, CI/CD</li>
+  <li><strong>Month 6:</strong> Capstone Project - Full-stack application with all features</li>
+</ul>
+<p><strong>Resources:</strong> The Odin Project, Full Stack Open, freeCodeCamp</p>
+<p><strong>Final Project:</strong> Social media app, e-commerce site, or SaaS tool</p>
+`;
+  }
+
+  // React Development
+  if (
+    lowerGoal.includes("react") ||
+    lowerGoal.includes("reactjs") ||
+    lowerGoal.includes("react.js")
+  ) {
+    return `
+<h4>⚛️ React Development Learning Path</h4>
+<ul>
+  <li><strong>Week 1-2:</strong> JavaScript Prerequisites - ES6+, destructuring, promises</li>
+  <li><strong>Week 3-4:</strong> React Basics - Components, JSX, props, state</li>
+  <li><strong>Week 5-6:</strong> React Hooks - useState, useEffect, custom hooks</li>
+  <li><strong>Week 7-8:</strong> State Management - Context API, Redux Toolkit</li>
+  <li><strong>Week 9-10:</strong> React Router - Navigation, dynamic routes, guards</li>
+  <li><strong>Week 11-12:</strong> Testing & Best Practices - Jest, React Testing Library</li>
+  <li><strong>Week 13-14:</strong> Real Projects - Build 2-3 React applications</li>
+</ul>
+<p><strong>Resources:</strong> React.dev docs, React course by Kent C. Dodds, Scrimba React</p>
+<p><strong>Project Ideas:</strong> Movie database app, expense tracker, blog platform</p>
 `;
   }
 
