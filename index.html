@@ -62,7 +62,6 @@
           <li><a href="#start">how start</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#ai-tools">AI Tools</a></li>
           <!-- <li><a href="#contact">Contact</a></li> -->
         </ul>
       </div>
@@ -132,32 +131,7 @@
           </div>
         </section>
 
-        <section id="ai-tools">
-          <h2 class="section-title">AI Code Helper</h2>
-          <div class="ai-tools-container">
-            <div class="tool-card">
-              <h3>Code Snippet Generator</h3>
-              <p>Get AI-generated code snippets for common programming tasks</p>
-              <select id="language-select">
-                <option value="html">HTML</option>
-                <option value="css">CSS</option>
-                <option value="javascript">JavaScript</option>
-                <option value="nodejs">Node.js</option>
-              </select>
-              <input type="text" id="code-request" placeholder="Describe what code you need (e.g., 'responsive navigation bar')">
-              <button onclick="generateCode()" class="ai-btn">Generate Code</button>
-              <div id="generated-code" class="code-output"></div>
-            </div>
-            
-            <div class="tool-card">
-              <h3>Learning Path Generator</h3>
-              <p>Get a personalized learning roadmap based on your goals</p>
-              <input type="text" id="learning-goal" placeholder="What do you want to learn? (e.g., 'web development')">
-              <button onclick="generateLearningPath()" class="ai-btn">Create Path</button>
-              <div id="learning-path" class="path-output"></div>
-            </div>
-          </div>
-        </section>
+
       </div>
     </main>
     <footer id="contact">
@@ -188,6 +162,5 @@
     
 
   </body>
-  <script src="ai-config.js"></script>
   <script src="index-script.js"></script>
 </html>
